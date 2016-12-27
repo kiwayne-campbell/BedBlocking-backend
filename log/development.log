@@ -1,0 +1,645 @@
+  [1m[35m (31.6ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying PRIMARY KEY)[0m
+  [1m[35m (4.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(117263597428338585);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateUsers (20161227124428)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (8.5ms)[0m  [1m[35mCREATE TABLE "users" ("id" serial primary key, "username" character varying, "email" character varying, "password_digest" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20161227124428"]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", 2016-12-27 12:45:49 UTC], ["updated_at", 2016-12-27 12:45:49 UTC]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT pg_advisory_unlock(117263597428338585)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Started POST "/api/register" for ::1 at 2016-12-27 13:03:20 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (7.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by AuthController#register as */*
+  Parameters: {"username"=>"mickyginger", "email"=>"mike.hayden@ga.co", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "auth"=>{"username"=>"mickyginger", "email"=>"mike.hayden@ga.co", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+Unpermitted parameter: auth
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (2.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "mickyginger"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "mike.hayden@ga.co"], ["LIMIT", 1]]
+  [1m[35mSQL (1.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "mickyginger"], ["email", "mike.hayden@ga.co"], ["password_digest", "$2a$10$JuUX6F6GB0WcO0sJ7Igb.eB8OlZzzEkeQjHTXLMXUgYHoVDRfappS"], ["created_at", 2016-12-27 13:03:21 UTC], ["updated_at", 2016-12-27 13:03:21 UTC]]
+  [1m[35m (5.2ms)[0m  [1m[35mCOMMIT[0m
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (2.87ms)
+Completed 200 OK in 198ms (Views: 32.6ms | ActiveRecord: 22.6ms)
+
+
+Started POST "/api/login" for ::1 at 2016-12-27 13:08:07 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (5.0ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Error occurred while parsing request parameters.
+Contents:
+
+{
+  "email": "mike.hayden@ga.co",
+  "password": "password",
+}
+  
+ActionDispatch::ParamsParser::ParseError (822: unexpected token at '{
+  "email": "mike.hayden@ga.co",
+  "password": "password",
+}'):
+  
+actionpack (5.0.1) lib/action_dispatch/http/parameters.rb:78:in `rescue in parse_formatted_parameters'
+actionpack (5.0.1) lib/action_dispatch/http/parameters.rb:72:in `parse_formatted_parameters'
+actionpack (5.0.1) lib/action_dispatch/http/request.rb:354:in `block in POST'
+rack (2.0.1) lib/rack/request.rb:57:in `fetch'
+rack (2.0.1) lib/rack/request.rb:57:in `fetch_header'
+actionpack (5.0.1) lib/action_dispatch/http/request.rb:353:in `POST'
+actionpack (5.0.1) lib/action_controller/metal/params_wrapper.rb:282:in `_wrapper_enabled?'
+actionpack (5.0.1) lib/action_controller/metal/params_wrapper.rb:231:in `process_action'
+activerecord (5.0.1) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+actionpack (5.0.1) lib/abstract_controller/base.rb:126:in `process'
+actionpack (5.0.1) lib/action_controller/metal.rb:190:in `dispatch'
+actionpack (5.0.1) lib/action_controller/metal.rb:262:in `dispatch'
+actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (5.0.1) lib/action_dispatch/journey/router.rb:39:in `block in serve'
+actionpack (5.0.1) lib/action_dispatch/journey/router.rb:26:in `each'
+actionpack (5.0.1) lib/action_dispatch/journey/router.rb:26:in `serve'
+actionpack (5.0.1) lib/action_dispatch/routing/route_set.rb:725:in `call'
+rack (2.0.1) lib/rack/etag.rb:25:in `call'
+rack (2.0.1) lib/rack/conditional_get.rb:38:in `call'
+rack (2.0.1) lib/rack/head.rb:12:in `call'
+activerecord (5.0.1) lib/active_record/migration.rb:553:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+activesupport (5.0.1) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+activesupport (5.0.1) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+activesupport (5.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.6.2) lib/puma/configuration.rb:225:in `call'
+puma (3.6.2) lib/puma/server.rb:578:in `handle_request'
+puma (3.6.2) lib/puma/server.rb:415:in `process_client'
+puma (3.6.2) lib/puma/server.rb:275:in `block in run'
+puma (3.6.2) lib/puma/thread_pool.rb:116:in `block in spawn_thread'
+Started POST "/api/login" for ::1 at 2016-12-27 13:08:13 +0000
+Processing by AuthController#login as */*
+  Parameters: {"email"=>"mike.hayden@ga.co", "password"=>"[FILTERED]", "auth"=>{"email"=>"mike.hayden@ga.co", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (3.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "mike.hayden@ga.co"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (9.27ms)
+Completed 200 OK in 174ms (Views: 21.7ms | ActiveRecord: 20.9ms)
+
+
+Started GET "/api/users" for ::1 at 2016-12-27 13:11:57 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#index as */*
+  Parameters: {"username"=>"", "first_name"=>"Mike", "last_name"=>"", "festival"=>{"festival_ids"=>[1, 2]}, "user"=>{"username"=>""}}
+  [1m[36mUser Load (5.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.47ms)
+Completed 200 OK in 47ms (Views: 33.6ms | ActiveRecord: 13.2ms)
+
+
+Started GET "/api/users/1" for ::1 at 2016-12-27 13:12:18 +0000
+Processing by UsersController#show as */*
+  Parameters: {"username"=>"", "first_name"=>"Mike", "last_name"=>"", "festival"=>{"festival_ids"=>[1, 2]}, "id"=>"1", "user"=>{"username"=>""}}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.54ms)
+Completed 200 OK in 5ms (Views: 2.3ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/api/users/1" for ::1 at 2016-12-27 13:14:04 +0000
+Processing by UsersController#show as */*
+  Parameters: {"username"=>"mickyginger2", "id"=>"1", "user"=>{"username"=>"mickyginger2"}}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.2ms)
+Completed 200 OK in 5ms (Views: 1.8ms | ActiveRecord: 1.6ms)
+
+
+Started PUT "/api/users/1" for ::1 at 2016-12-27 13:14:10 +0000
+Processing by UsersController#update as */*
+  Parameters: {"username"=>"mickyginger2", "id"=>"1", "user"=>{"username"=>"mickyginger2"}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (1.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND ("users"."id" != $2) LIMIT $3[0m  [["username", "mickyginger2"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND ("users"."id" != $2) LIMIT $3[0m  [["email", "mike.hayden@ga.co"], ["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (1.7ms)[0m  [1m[33mUPDATE "users" SET "username" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["username", "mickyginger2"], ["updated_at", 2016-12-27 13:14:10 UTC], ["id", 1]]
+  [1m[35m (7.6ms)[0m  [1m[35mCOMMIT[0m
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.2ms)
+Completed 200 OK in 41ms (Views: 1.1ms | ActiveRecord: 12.2ms)
+
+
+Started PUT "/api/users/1" for ::1 at 2016-12-27 13:14:48 +0000
+Processing by UsersController#update as */*
+  Parameters: {"username"=>"mickyginger", "id"=>"1", "user"=>{"username"=>"mickyginger"}}
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.11ms)
+Filter chain halted as :authenticate_user! rendered or redirected
+Completed 401 Unauthorized in 6ms (Views: 4.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/login" for ::1 at 2016-12-27 13:15:14 +0000
+Processing by AuthController#login as */*
+  Parameters: {"email"=>"mike.hayden@ga.co", "password"=>"[FILTERED]", "auth"=>{"email"=>"mike.hayden@ga.co", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "mike.hayden@ga.co"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.2ms)
+Completed 200 OK in 91ms (Views: 1.6ms | ActiveRecord: 0.7ms)
+
+
+Started PUT "/api/users/1" for ::1 at 2016-12-27 13:16:11 +0000
+Processing by UsersController#update as */*
+  Parameters: {"username"=>"mickyginger", "id"=>"1", "user"=>{"username"=>"mickyginger"}}
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.19ms)
+Filter chain halted as :authenticate_user! rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.9ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/api/users/1" for ::1 at 2016-12-27 13:16:13 +0000
+Processing by UsersController#update as */*
+  Parameters: {"username"=>"mickyginger", "id"=>"1", "user"=>{"username"=>"mickyginger"}}
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.11ms)
+Filter chain halted as :authenticate_user! rendered or redirected
+Completed 401 Unauthorized in 1ms (Views: 0.6ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/api/users/1" for ::1 at 2016-12-27 13:16:33 +0000
+Processing by UsersController#update as */*
+  Parameters: {"username"=>"mickyginger", "id"=>"1", "user"=>{"username"=>"mickyginger"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (1.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND ("users"."id" != $2) LIMIT $3[0m  [["username", "mickyginger"], ["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND ("users"."id" != $2) LIMIT $3[0m  [["email", "mike.hayden@ga.co"], ["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[33mUPDATE "users" SET "username" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["username", "mickyginger"], ["updated_at", 2016-12-27 13:16:33 UTC], ["id", 1]]
+  [1m[35m (2.8ms)[0m  [1m[35mCOMMIT[0m
+[active_model_serializers] Rendered UserSerializer with ActiveModelSerializers::Adapter::Attributes (0.16ms)
+Completed 200 OK in 14ms (Views: 0.7ms | ActiveRecord: 6.3ms)
+
+
+  [1m[36mActiveRecord::SchemaMigration Load (4.8ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (26.5ms)[0m  [1m[35mTRUNCATE users RESTART IDENTITY CASCADE[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (2.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "mickyginger"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "mike.hayden@ga.co"], ["LIMIT", 1]]
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "mickyginger"], ["email", "mike.hayden@ga.co"], ["password_digest", "$2a$10$w/MStKY/tmI/V/0J.4RUtuelhqdDNFzzb7f0IUbVmFKpOFVP0lTK."], ["created_at", 2016-12-27 13:18:44 UTC], ["updated_at", 2016-12-27 13:18:44 UTC]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "emilyi"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "emily.isacke@ga.co"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "emilyi"], ["email", "emily.isacke@ga.co"], ["password_digest", "$2a$10$QRxjVukKmhTEjgkp.ZClXumEmZixYauttjcpGdz.2qzQWxT8OLKr6"], ["created_at", 2016-12-27 13:18:44 UTC], ["updated_at", 2016-12-27 13:18:44 UTC]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "cynthia"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "cynthia@cynthia.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "cynthia"], ["email", "cynthia@cynthia.com"], ["password_digest", "$2a$10$HOF4TcBBipmLMCQY/PtWrewx/kHOivN41yiWt2n8PPTV6bBm4JMcW"], ["created_at", 2016-12-27 13:18:44 UTC], ["updated_at", 2016-12-27 13:18:44 UTC]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "nadia"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "nadia@nz.co"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "nadia"], ["email", "nadia@nz.co"], ["password_digest", "$2a$10$6AZoF7BjFXVjwEtkycfBf.FvvzIUaIul57h4/LcDr98BQIVFkNbDi"], ["created_at", 2016-12-27 13:18:44 UTC], ["updated_at", 2016-12-27 13:18:44 UTC]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (15.7ms)[0m  [1m[35mTRUNCATE users RESTART IDENTITY CASCADE[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (1.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "mickyginger"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "mike.hayden@ga.co"], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "mickyginger"], ["email", "mike.hayden@ga.co"], ["password_digest", "$2a$10$IG2wYN8.WCZPt6soZ5rYk.Doi9PSl7LxhkKN7RO3aA3jVJeZ2L7Kq"], ["created_at", 2016-12-27 13:19:42 UTC], ["updated_at", 2016-12-27 13:19:42 UTC]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.9ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "emilyi"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "emily.isacke@ga.co"], ["LIMIT", 1]]
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "emilyi"], ["email", "emily.isacke@ga.co"], ["password_digest", "$2a$10$JRJJUXqnTrpLrrM87IP7zOnhXRdqAHRw1mBjff0o2JQjC0WUYEyLC"], ["created_at", 2016-12-27 13:19:42 UTC], ["updated_at", 2016-12-27 13:19:42 UTC]]
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "cynthia"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "cynthia@cynthia.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "cynthia"], ["email", "cynthia@cynthia.com"], ["password_digest", "$2a$10$jGvGFoLSCUwHqbth4IS1SOtN2bdYNjCytnkIE8DLNcLZ1S/mGQvKK"], ["created_at", 2016-12-27 13:19:42 UTC], ["updated_at", 2016-12-27 13:19:42 UTC]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "nadia"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "nadia@nz.co"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "nadia"], ["email", "nadia@nz.co"], ["password_digest", "$2a$10$fj055NDjP4PWwwvnh/.dx.WObc7iQ2DaQLG01bmgDxK55m57JzwVe"], ["created_at", 2016-12-27 13:19:43 UTC], ["updated_at", 2016-12-27 13:19:43 UTC]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (13.2ms)[0m  [1m[35mTRUNCATE users RESTART IDENTITY CASCADE[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (1.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "mickyginger"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "mike.hayden@ga.co"], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "mickyginger"], ["email", "mike.hayden@ga.co"], ["password_digest", "$2a$10$GWFcYzVu/nI9DkstzJF6gOUrSjz26mzqWoQksxp/82PrNIPit2A02"], ["created_at", 2016-12-27 13:19:53 UTC], ["updated_at", 2016-12-27 13:19:53 UTC]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "emilyi"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "emily.isacke@ga.co"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "emilyi"], ["email", "emily.isacke@ga.co"], ["password_digest", "$2a$10$011BaBFyuwEzlClpJ9oD0eoLDEaB5rCoJXzYTdTapKpJ.BlNDHnLG"], ["created_at", 2016-12-27 13:19:53 UTC], ["updated_at", 2016-12-27 13:19:53 UTC]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "cynthia"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "cynthia@cynthia.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "cynthia"], ["email", "cynthia@cynthia.com"], ["password_digest", "$2a$10$p3hVQ5lCoUtAbSxA5VlRd.vd5P.JPVpHBOdkEzzQjJCcFIe/1o4ji"], ["created_at", 2016-12-27 13:19:53 UTC], ["updated_at", 2016-12-27 13:19:53 UTC]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "nadia"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "nadia@nz.co"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "nadia"], ["email", "nadia@nz.co"], ["password_digest", "$2a$10$GdpfWsYw/MXwx.7ETGO3puwhm3VZrEkVgXgawV6gPVzv3ckTZkXZa"], ["created_at", 2016-12-27 13:19:53 UTC], ["updated_at", 2016-12-27 13:19:53 UTC]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Started GET "/api/users" for ::1 at 2016-12-27 14:36:00 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (12.0ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (9.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.78ms)
+Completed 200 OK in 101ms (Views: 65.1ms | ActiveRecord: 26.3ms)
+
+
+Started GET "/api/users" for ::1 at 2016-12-27 14:36:02 +0000
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.14ms)
+Completed 200 OK in 8ms (Views: 5.1ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/api/users" for ::1 at 2016-12-27 14:38:10 +0000
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (4.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.67ms)
+Completed 200 OK in 10ms (Views: 4.6ms | ActiveRecord: 4.7ms)
+
+
+Started POST "/api/login" for ::1 at 2016-12-27 14:38:33 +0000
+Processing by AuthController#login as HTML
+  Parameters: {"username"=>"bob", "email"=>"bob@bob.com", "password"=>"[FILTERED]", "passwordConfirmation"=>"[FILTERED]", "auth"=>{"username"=>"bob", "email"=>"bob@bob.com", "password"=>"[FILTERED]", "passwordConfirmation"=>"[FILTERED]"}}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "bob@bob.com"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.16ms)
+Completed 401 Unauthorized in 15ms (Views: 10.9ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/api/users" for ::1 at 2016-12-27 14:39:57 +0000
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (2.38ms)
+Completed 200 OK in 12ms (Views: 9.9ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/api/login" for ::1 at 2016-12-27 14:40:20 +0000
+Processing by AuthController#login as HTML
+  Parameters: {"username"=>"bob", "email"=>"bob@bob.com", "password"=>"[FILTERED]", "passwordConfirmation"=>"[FILTERED]", "auth"=>{"username"=>"bob", "email"=>"bob@bob.com", "password"=>"[FILTERED]", "passwordConfirmation"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "bob@bob.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.44ms)
+Completed 401 Unauthorized in 4ms (Views: 1.6ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/api/register" for ::1 at 2016-12-27 14:44:03 +0000
+Processing by AuthController#register as */*
+  Parameters: {"username"=>"test1", "email"=>"test@test.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "auth"=>{"username"=>"test1", "email"=>"test@test.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+Unpermitted parameter: auth
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (1.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "test1"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@test.com"], ["LIMIT", 1]]
+  [1m[35mSQL (9.1ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "test1"], ["email", "test@test.com"], ["password_digest", "$2a$10$afpvb6y52QvoO7NUvdSOlOXQki10C2Otb6ehXqTtKb0YHa.NS8LWW"], ["created_at", 2016-12-27 14:44:04 UTC], ["updated_at", 2016-12-27 14:44:04 UTC]]
+  [1m[35m (7.3ms)[0m  [1m[35mCOMMIT[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.71ms)
+Completed 200 OK in 269ms (Views: 2.5ms | ActiveRecord: 19.0ms)
+
+
+Started POST "/api/login" for ::1 at 2016-12-27 14:46:33 +0000
+Processing by AuthController#login as HTML
+  Parameters: {"username"=>"bob", "email"=>"bob@bob.com", "password"=>"[FILTERED]", "passwordConfirmation"=>"[FILTERED]", "auth"=>{"username"=>"bob", "email"=>"bob@bob.com", "password"=>"[FILTERED]", "passwordConfirmation"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "bob@bob.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.1ms)
+Completed 401 Unauthorized in 2ms (Views: 0.5ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/api/login" for ::1 at 2016-12-27 14:46:34 +0000
+Processing by AuthController#login as HTML
+  Parameters: {"username"=>"bob", "email"=>"bob@bob.com", "password"=>"[FILTERED]", "passwordConfirmation"=>"[FILTERED]", "auth"=>{"username"=>"bob", "email"=>"bob@bob.com", "password"=>"[FILTERED]", "passwordConfirmation"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "bob@bob.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.13ms)
+Completed 401 Unauthorized in 2ms (Views: 0.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/api/users" for ::1 at 2016-12-27 14:47:58 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (3.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (3.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.76ms)
+Completed 200 OK in 54ms (Views: 26.6ms | ActiveRecord: 16.1ms)
+
+
+Started GET "/api/users" for ::1 at 2016-12-27 14:53:13 +0000
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (2.32ms)
+Completed 200 OK in 17ms (Views: 12.1ms | ActiveRecord: 1.5ms)
+
+
+Started POST "/api/login" for ::1 at 2016-12-27 14:53:43 +0000
+Processing by AuthController#login as HTML
+  Parameters: {"password"=>"[FILTERED]", "auth"=>{"password"=>"[FILTERED]"}}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.23ms)
+Completed 401 Unauthorized in 54ms (Views: 25.7ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/api/login" for ::1 at 2016-12-27 14:53:47 +0000
+Processing by AuthController#login as HTML
+  Parameters: {"password"=>"[FILTERED]", "auth"=>{"password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.99ms)
+Completed 401 Unauthorized in 4ms (Views: 1.4ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/api/login" for ::1 at 2016-12-27 14:53:55 +0000
+Processing by AuthController#login as HTML
+  Parameters: {"password"=>"[FILTERED]", "auth"=>{"password"=>"[FILTERED]"}}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.15ms)
+Completed 401 Unauthorized in 5ms (Views: 2.3ms | ActiveRecord: 1.5ms)
+
+
+Started POST "/api/login" for ::1 at 2016-12-27 14:54:03 +0000
+Processing by AuthController#login as HTML
+  Parameters: {"password"=>"[FILTERED]", "email"=>"nadia@nz.co", "auth"=>{"password"=>"[FILTERED]", "email"=>"nadia@nz.co"}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "nadia@nz.co"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.88ms)
+Completed 200 OK in 90ms (Views: 1.4ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/api/users" for ::1 at 2016-12-27 14:54:03 +0000
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (4.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (2.07ms)
+Completed 200 OK in 14ms (Views: 7.6ms | ActiveRecord: 5.7ms)
+
+
+Started GET "/api/users" for ::1 at 2016-12-27 14:54:36 +0000
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.46ms)
+Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/api/users" for ::1 at 2016-12-27 14:54:39 +0000
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.29ms)
+Completed 200 OK in 5ms (Views: 4.4ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/api/login" for ::1 at 2016-12-27 14:55:00 +0000
+Processing by AuthController#login as HTML
+  Parameters: {"username"=>"bob", "email"=>"bob@bob.com", "password"=>"[FILTERED]", "passwordConfirmation"=>"[FILTERED]", "auth"=>{"username"=>"bob", "email"=>"bob@bob.com", "password"=>"[FILTERED]", "passwordConfirmation"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "bob@bob.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.07ms)
+Completed 401 Unauthorized in 2ms (Views: 0.4ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/api/login" for ::1 at 2016-12-27 15:03:00 +0000
+Processing by AuthController#login as HTML
+  Parameters: {"username"=>"test", "email"=>"test@test2.com", "password"=>"[FILTERED]", "passwordConfirmation"=>"[FILTERED]", "auth"=>{"username"=>"test", "email"=>"test@test2.com", "password"=>"[FILTERED]", "passwordConfirmation"=>"[FILTERED]"}}
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@test2.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.61ms)
+Completed 401 Unauthorized in 15ms (Views: 3.4ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/api/users" for ::1 at 2016-12-27 15:13:07 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (2.9ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (4.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (2.22ms)
+Completed 200 OK in 111ms (Views: 65.8ms | ActiveRecord: 37.3ms)
+
+
+Started POST "/api/login" for ::1 at 2016-12-27 15:13:42 +0000
+Processing by AuthController#login as HTML
+  Parameters: {"username"=>"bob", "email"=>"bob@bob.com", "password"=>"[FILTERED]", "passwordConfirmation"=>"[FILTERED]", "auth"=>{"username"=>"bob", "email"=>"bob@bob.com", "password"=>"[FILTERED]", "passwordConfirmation"=>"[FILTERED]"}}
+  [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "bob@bob.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.15ms)
+Completed 401 Unauthorized in 34ms (Views: 10.0ms | ActiveRecord: 2.9ms)
+
+
+Started POST "/api/login" for ::1 at 2016-12-27 15:15:22 +0000
+Processing by AuthController#login as HTML
+  Parameters: {"username"=>"dsffs", "email"=>"fdsfsd@fdsdffs.com", "password"=>"[FILTERED]", "passwordConfirmation"=>"[FILTERED]", "auth"=>{"username"=>"dsffs", "email"=>"fdsfsd@fdsdffs.com", "password"=>"[FILTERED]", "passwordConfirmation"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "fdsfsd@fdsdffs.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (5.53ms)
+Completed 401 Unauthorized in 36ms (Views: 13.7ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/api/login" for ::1 at 2016-12-27 15:19:49 +0000
+Processing by AuthController#login as HTML
+  Parameters: {"username"=>"bob", "email"=>"bob@bob.com", "password"=>"[FILTERED]", "passwordConfirmation"=>"[FILTERED]", "auth"=>{"username"=>"bob", "email"=>"bob@bob.com", "password"=>"[FILTERED]", "passwordConfirmation"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "bob@bob.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (1.69ms)
+Completed 401 Unauthorized in 26ms (Views: 7.6ms | ActiveRecord: 1.4ms)
+
+
+Started POST "/api/login" for ::1 at 2016-12-27 15:25:49 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (3.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by AuthController#login as HTML
+  Parameters: {"email"=>"test@test.com", "password"=>"[FILTERED]", "auth"=>{"email"=>"test@test.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (3.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@test.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.15ms)
+Completed 401 Unauthorized in 132ms (Views: 6.6ms | ActiveRecord: 19.4ms)
+
+
+Started GET "/api/users" for ::1 at 2016-12-27 15:26:58 +0000
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.9ms)
+Completed 200 OK in 45ms (Views: 42.1ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/api/login" for ::1 at 2016-12-27 15:27:33 +0000
+Processing by AuthController#login as HTML
+  Parameters: {"username"=>"d", "email"=>"d@d.com", "password"=>"[FILTERED]", "passwordConfirmation"=>"[FILTERED]", "auth"=>{"username"=>"d", "email"=>"d@d.com", "password"=>"[FILTERED]", "passwordConfirmation"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "d@d.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.23ms)
+Completed 401 Unauthorized in 5ms (Views: 1.3ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/api/register" for ::1 at 2016-12-27 15:27:51 +0000
+Processing by AuthController#register as */*
+  Parameters: {"username"=>"test2", "email"=>"test@test2.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "auth"=>{"username"=>"test2", "email"=>"test@test2.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+Unpermitted parameter: auth
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "test2"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "test@test2.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "test2"], ["email", "test@test2.com"], ["password_digest", "$2a$10$IeSGFGHNthIp.cETjkF0fOYyqFgn3gmWnCSc0.U5AUHzIQcJ.5Nne"], ["created_at", 2016-12-27 15:27:51 UTC], ["updated_at", 2016-12-27 15:27:51 UTC]]
+  [1m[35m (7.9ms)[0m  [1m[35mCOMMIT[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.28ms)
+Completed 200 OK in 143ms (Views: 0.9ms | ActiveRecord: 9.8ms)
+
+
+Started POST "/api/register" for ::1 at 2016-12-27 15:45:24 +0000
+Processing by AuthController#register as HTML
+  Parameters: {"username"=>"bob", "email"=>"bob@bob.com", "password"=>"[FILTERED]", "passwordConfirmation"=>"[FILTERED]", "auth"=>{"username"=>"bob", "email"=>"bob@bob.com", "password"=>"[FILTERED]", "passwordConfirmation"=>"[FILTERED]"}}
+Unpermitted parameters: passwordConfirmation, auth
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "bob"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "bob@bob.com"], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.21ms)
+Completed 422 Unprocessable Entity in 138ms (Views: 3.8ms | ActiveRecord: 10.1ms)
+
+
+Started GET "/api/users" for ::1 at 2016-12-27 15:46:03 +0000
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.95ms)
+Completed 200 OK in 12ms (Views: 10.8ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/api/register" for ::1 at 2016-12-27 15:47:17 +0000
+Processing by AuthController#register as HTML
+  Parameters: {"username"=>"bobbob", "email"=>"bobbob@bob.com", "password"=>"[FILTERED]", "passwordConfirmation"=>"[FILTERED]", "auth"=>{"username"=>"bobbob", "email"=>"bobbob@bob.com", "password"=>"[FILTERED]", "passwordConfirmation"=>"[FILTERED]"}}
+Unpermitted parameters: passwordConfirmation, auth
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "bobbob"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "bobbob@bob.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.08ms)
+Completed 422 Unprocessable Entity in 90ms (Views: 0.8ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/api/register" for ::1 at 2016-12-27 15:47:37 +0000
+Processing by AuthController#register as HTML
+  Parameters: {"username"=>"bobbob", "email"=>"bobbob@bob.com", "password"=>"[FILTERED]", "passwordConfirmation"=>"[FILTERED]", "auth"=>{"username"=>"bobbob", "email"=>"bobbob@bob.com", "password"=>"[FILTERED]", "passwordConfirmation"=>"[FILTERED]"}}
+Unpermitted parameters: passwordConfirmation, auth
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "bobbob"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "bobbob@bob.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.11ms)
+Completed 422 Unprocessable Entity in 84ms (Views: 0.5ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/api/users/" for ::1 at 2016-12-27 15:48:23 +0000
+Processing by UsersController#index as */*
+  Parameters: {"username"=>"", "first_name"=>"Mike", "last_name"=>"", "festival"=>{"festival_ids"=>[1, 2]}, "user"=>{"username"=>""}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.9ms)
+Completed 200 OK in 3ms (Views: 2.8ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/api/register" for ::1 at 2016-12-27 15:49:10 +0000
+Processing by AuthController#register as HTML
+  Parameters: {"username"=>"bob", "email"=>"bob@bob.com", "password"=>"[FILTERED]", "passwordConfirmation"=>"[FILTERED]", "auth"=>{"username"=>"bob", "email"=>"bob@bob.com", "password"=>"[FILTERED]", "passwordConfirmation"=>"[FILTERED]"}}
+Unpermitted parameters: passwordConfirmation, auth
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "bob"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "bob@bob.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.17ms)
+Completed 422 Unprocessable Entity in 105ms (Views: 3.8ms | ActiveRecord: 1.1ms)
+
+
+  [1m[36mActiveRecord::SchemaMigration Load (2.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (35.8ms)[0m  [1m[35mTRUNCATE users RESTART IDENTITY CASCADE[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (2.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "mickyginger"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "mike.hayden@ga.co"], ["LIMIT", 1]]
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "mickyginger"], ["email", "mike.hayden@ga.co"], ["password_digest", "$2a$10$C4MBNC4AT7E43hHywFk0B.kr1bnRNRPjj/ss9BMgqdceKpebr7o3."], ["created_at", 2016-12-27 16:10:56 UTC], ["updated_at", 2016-12-27 16:10:56 UTC]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "emilyi"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "emily.isacke@ga.co"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "emilyi"], ["email", "emily.isacke@ga.co"], ["password_digest", "$2a$10$.qISzk..9/D3YgP2RInpC.6JL5av3gsQfw1R9Vyb.9JWnZgDcQ8O6"], ["created_at", 2016-12-27 16:10:56 UTC], ["updated_at", 2016-12-27 16:10:56 UTC]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "cynthia"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "cynthia@cynthia.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "cynthia"], ["email", "cynthia@cynthia.com"], ["password_digest", "$2a$10$GzQg8bG.8UULk7p1EaB4P.ryeHknPrajp0q5/eKNpouDLqInPNtiO"], ["created_at", 2016-12-27 16:10:56 UTC], ["updated_at", 2016-12-27 16:10:56 UTC]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "nadia"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "nadia@nz.co"], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "nadia"], ["email", "nadia@nz.co"], ["password_digest", "$2a$10$81jg2pK9ANUtOw3PRayBXe49P5wSByRKE5Sm8/iypC7WCp2Eh47iO"], ["created_at", 2016-12-27 16:10:57 UTC], ["updated_at", 2016-12-27 16:10:57 UTC]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Started GET "/api/users" for ::1 at 2016-12-27 16:11:44 +0000
+Started GET "/api/users" for ::1 at 2016-12-27 16:11:44 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (2.9ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (6.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#index as HTML
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (3.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mUser Load (3.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.91ms)
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.51ms)
+Completed 200 OK in 59ms (Views: 33.4ms | ActiveRecord: 16.5ms)
+
+
+Completed 200 OK in 60ms (Views: 28.7ms | ActiveRecord: 25.5ms)
+
+
+Started POST "/api/register" for ::1 at 2016-12-27 16:12:03 +0000
+Processing by AuthController#register as HTML
+  Parameters: {"username"=>"dsdaa", "email"=>"dsadad@dsd.com", "password"=>"[FILTERED]", "passwordConfirmation"=>"[FILTERED]", "auth"=>{"username"=>"dsdaa", "email"=>"dsadad@dsd.com", "password"=>"[FILTERED]", "passwordConfirmation"=>"[FILTERED]"}}
+Unpermitted parameters: passwordConfirmation, auth
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (1.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "dsdaa"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "dsadad@dsd.com"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.3ms)
+Completed 422 Unprocessable Entity in 154ms (Views: 10.0ms | ActiveRecord: 2.1ms)
+
+
+Started POST "/api/register" for ::1 at 2016-12-27 16:29:05 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (11.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by AuthController#register as HTML
+  Parameters: {"username"=>"bob2", "email"=>"bob2@bob.com", "password"=>"[FILTERED]", "passwordConfirmation"=>"[FILTERED]", "auth"=>{"username"=>"bob2", "email"=>"bob2@bob.com", "password"=>"[FILTERED]", "passwordConfirmation"=>"[FILTERED]"}}
+Unpermitted parameters: passwordConfirmation, auth
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (4.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "bob2"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "bob2@bob.com"], ["LIMIT", 1]]
+  [1m[35m (1.4ms)[0m  [1m[31mROLLBACK[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.29ms)
+Completed 422 Unprocessable Entity in 177ms (Views: 6.1ms | ActiveRecord: 33.7ms)
+
+
+Started POST "/api/register" for ::1 at 2016-12-27 16:32:26 +0000
+Processing by AuthController#register as HTML
+  Parameters: {"username"=>"bob", "email"=>"bob@bob.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "auth"=>{"username"=>"bob", "email"=>"bob@bob.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}}
+Unpermitted parameter: auth
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (4.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "bob"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "bob@bob.com"], ["LIMIT", 1]]
+  [1m[35mSQL (8.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "bob"], ["email", "bob@bob.com"], ["password_digest", "$2a$10$wQBdfyvh5N6eQWo4U6NoaOwXMvkB7ncMSJOql5.SPoq8MFl83TMyi"], ["created_at", 2016-12-27 16:32:27 UTC], ["updated_at", 2016-12-27 16:32:27 UTC]]
+  [1m[35m (10.9ms)[0m  [1m[35mCOMMIT[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (25.91ms)
+Completed 200 OK in 173ms (Views: 27.8ms | ActiveRecord: 24.4ms)
+
+
+Started POST "/api/login" for ::1 at 2016-12-27 16:32:34 +0000
+Processing by AuthController#login as HTML
+  Parameters: {"email"=>"bob@bob.com", "password"=>"[FILTERED]", "auth"=>{"email"=>"bob@bob.com", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "bob@bob.com"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.77ms)
+Completed 200 OK in 95ms (Views: 1.6ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/api/users" for ::1 at 2016-12-27 16:32:34 +0000
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.43ms)
+Completed 200 OK in 11ms (Views: 9.1ms | ActiveRecord: 0.8ms)
+
+
