@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :assessments
+  resources :beds
+  resources :pocs
+  resources :patients
   scope :api do
      resources :users, except: [:create]
 

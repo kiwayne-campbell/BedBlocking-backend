@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  medically_stable: MyString
+  rehab_in_short_term: MyString
+  discharge_destination: MyString
+  requires_level_of_nursing_care: MyString
+  housing_issues: MyString
+  under_age_18: MyString
+  mental_health_problems: MyString
+  requires_respite_care: MyString
+  requires_long_term_placement: MyString
+
+two:
+  medically_stable: MyString
+  rehab_in_short_term: MyString
+  discharge_destination: MyString
+  requires_level_of_nursing_care: MyString
+  housing_issues: MyString
+  under_age_18: MyString
+  mental_health_problems: MyString
+  requires_respite_care: MyString
+  requires_long_term_placement: MyString

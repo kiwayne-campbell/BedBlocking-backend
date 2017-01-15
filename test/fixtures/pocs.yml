@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  home_care: MyString
+  meals_on_wheels: MyString
+  frozen_meals: MyString
+  day_care: MyString
+  day_hospital: MyString
+  district_nurse: MyString
+  physio: MyString
+  residential_home: MyString
+  nursing_home: MyString
+  other: MyString
+  notes: MyString
+  doa: 2016-12-28
+  dod: 2016-12-28
+
+two:
+  home_care: MyString
+  meals_on_wheels: MyString
+  frozen_meals: MyString
+  day_care: MyString
+  day_hospital: MyString
+  district_nurse: MyString
+  physio: MyString
+  residential_home: MyString
+  nursing_home: MyString
+  other: MyString
+  notes: MyString
+  doa: 2016-12-28
+  dod: 2016-12-28
