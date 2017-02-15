@@ -32,4 +32,13 @@ User.create!([{
   password_confirmation: "password"
 }])
 
+Patient.create!([{
+  patient_no: 323324,
+  first_name: "patient",
+  last_name: "0",
+  diagnosis: "cancer",
+  assesment: "yes see notes"
+  }])
+
 puts User.all
+puts Patient.all

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170214192950) do
+ActiveRecord::Schema.define(version: 20170215165301) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,8 @@ ActiveRecord::Schema.define(version: 20170214192950) do
     t.string   "requires_long_term_placement"
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
+    t.integer  "patient_id"
+    t.index ["patient_id"], name: "index_assessments_on_patient_id", using: :btree
   end
 
   create_table "beds", force: :cascade do |t|
@@ -35,15 +37,15 @@ ActiveRecord::Schema.define(version: 20170214192950) do
     t.string   "beds_available"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
+    t.integer  "patient_id"
+    t.index ["patient_id"], name: "index_beds_on_patient_id", using: :btree
   end
 
   create_table "patients", force: :cascade do |t|
     t.integer  "patient_no"
     t.string   "first_name"
     t.string   "last_name"
-    t.date     "dob"
     t.string   "diagnosis"
-    t.string   "assesment"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -69,6 +71,8 @@ ActiveRecord::Schema.define(version: 20170214192950) do
     t.date     "dod"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+    t.integer  "patient_id"
+    t.index ["patient_id"], name: "index_pocs_on_patient_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -79,4 +83,7 @@ ActiveRecord::Schema.define(version: 20170214192950) do
     t.datetime "updated_at",      null: false
   end
 
+  add_foreign_key "assessments", "patients"
+  add_foreign_key "beds", "patients"
+  add_foreign_key "pocs", "patients"
 end

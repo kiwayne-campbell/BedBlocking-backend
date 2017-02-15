@@ -46,6 +46,6 @@ class AssessmentsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def assessment_params
-      params.require(:assessment).permit(:medically_stable, :rehab_in_short_term, :discharge_destination, :requires_level_of_nursing_care, :housing_issues, :under_age_18, :mental_health_problems, :requires_respite_care, :requires_long_term_placement)
+      params.require(:assessment).permit(:medically_stable, :rehab_in_short_term, :discharge_destination, :requires_level_of_nursing_care, :housing_issues, :under_age_18, :mental_health_problems, :requires_respite_care, :requires_long_term_placement, :patient_id)
     end
 end

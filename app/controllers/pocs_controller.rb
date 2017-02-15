@@ -46,6 +46,6 @@ class PocsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def poc_params
-      params.require(:poc).permit(:home_care, :meals_on_wheels, :frozen_meals, :day_care, :day_hospital, :district_nurse, :physio, :residential_home, :nursing_home, :other, :notes, :doa, :dod)
+      params.require(:poc).permit(:home_care, :meals_on_wheels, :frozen_meals, :day_care, :day_hospital, :district_nurse, :physio, :residential_home, :nursing_home, :other, :notes, :doa, :dod, :patient_id)
     end
 end

@@ -46,6 +46,6 @@ class BedsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def bed_params
-      params.require(:bed).permit(:hospital_name, :hospital_location, :beds_available)
+      params.require(:bed).permit(:hospital_name, :hospital_location, :beds_available, :patient_id)
     end
 end
