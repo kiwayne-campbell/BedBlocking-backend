@@ -2367,3 +2367,722 @@ Migrating to AddUserToPatient (20170215165620)
   [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(117263597428338585)[0m
   [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
   [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Started POST "/api/assessments/" for 127.0.0.1 at 2017-02-17 12:31:31 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (12.8ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+):
+  
+activerecord (5.0.1) lib/active_record/migration.rb:573:in `check_pending!'
+activerecord (5.0.1) lib/active_record/migration.rb:549:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+activesupport (5.0.1) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+activesupport (5.0.1) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+activesupport (5.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+rack-cors (0.4.0) lib/rack/cors.rb:80:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.6.2) lib/puma/configuration.rb:225:in `call'
+puma (3.6.2) lib/puma/server.rb:578:in `handle_request'
+puma (3.6.2) lib/puma/server.rb:415:in `process_client'
+puma (3.6.2) lib/puma/server.rb:275:in `block in run'
+puma (3.6.2) lib/puma/thread_pool.rb:116:in `block in spawn_thread'
+  [1m[35m (3.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35m (7.7ms)[0m  [1m[34mSELECT pg_try_advisory_lock(117263597428338585);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddUserToPatient (20170215165620)
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (43.8ms)[0m  [1m[35mALTER TABLE "patients" ADD "user_id" integer[0m
+  [1m[35m (38.7ms)[0m  [1m[35mCREATE  INDEX  "index_patients_on_user_id" ON "patients"  ("user_id")[0m
+  [1m[35m (43.6ms)[0m  [1m[35mALTER TABLE "patients" ADD CONSTRAINT "fk_rails_623f05c630"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+[0m
+  [1m[35mSQL (3.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20170215165620"]]
+  [1m[35m (7.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (10.8ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(117263597428338585)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (3.8ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(117263597428338585);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddUserToPatient (20170215165620)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (25.1ms)[0m  [1m[35mALTER TABLE "patients" DROP CONSTRAINT "fk_rails_623f05c630"[0m
+  [1m[35m (3.2ms)[0m  [1m[35mALTER TABLE "patients" DROP "user_id"[0m
+  [1m[35mSQL (1.3ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = $1[0m  [["version", "20170215165620"]]
+  [1m[35m (7.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT pg_advisory_unlock(117263597428338585)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (3.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Started POST "/api/assessments/" for 127.0.0.1 at 2017-02-17 12:41:44 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (2.9ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+):
+  
+activerecord (5.0.1) lib/active_record/migration.rb:573:in `check_pending!'
+activerecord (5.0.1) lib/active_record/migration.rb:549:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+activesupport (5.0.1) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+activesupport (5.0.1) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+activesupport (5.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+rack-cors (0.4.0) lib/rack/cors.rb:80:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.6.2) lib/puma/configuration.rb:225:in `call'
+puma (3.6.2) lib/puma/server.rb:578:in `handle_request'
+puma (3.6.2) lib/puma/server.rb:415:in `process_client'
+puma (3.6.2) lib/puma/server.rb:275:in `block in run'
+puma (3.6.2) lib/puma/thread_pool.rb:116:in `block in spawn_thread'
+Started POST "/api/patients/" for 127.0.0.1 at 2017-02-17 12:41:56 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+):
+  
+activerecord (5.0.1) lib/active_record/migration.rb:573:in `check_pending!'
+activerecord (5.0.1) lib/active_record/migration.rb:549:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
+activesupport (5.0.1) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
+activesupport (5.0.1) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
+activesupport (5.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
+actionpack (5.0.1) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+rack-cors (0.4.0) lib/rack/cors.rb:80:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.6.2) lib/puma/configuration.rb:225:in `call'
+puma (3.6.2) lib/puma/server.rb:578:in `handle_request'
+puma (3.6.2) lib/puma/server.rb:415:in `process_client'
+puma (3.6.2) lib/puma/server.rb:275:in `block in run'
+puma (3.6.2) lib/puma/thread_pool.rb:116:in `block in spawn_thread'
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (7.6ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[35m (164.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "bedblocking-project-api_development"[0m
+  [1m[35m (128.8ms)[0m  [1m[35mDROP DATABASE IF EXISTS "bedblocking-project-api_test"[0m
+  [1m[35m (1755.3ms)[0m  [1m[35mCREATE DATABASE "bedblocking-project-api_development" ENCODING = 'unicode'[0m
+  [1m[35m (449.8ms)[0m  [1m[35mCREATE DATABASE "bedblocking-project-api_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (4.9ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (38.3ms)[0m  [1m[35mCREATE TABLE "assessments" ("id" serial primary key, "medically_stable" character varying, "rehab_in_short_term" character varying, "discharge_destination" character varying, "requires_level_of_nursing_care" character varying, "housing_issues" character varying, "under_age_18" character varying, "mental_health_problems" character varying, "requires_respite_care" character varying, "requires_long_term_placement" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "patient_id" integer)[0m
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE  INDEX  "index_assessments_on_patient_id" ON "assessments" USING btree ("patient_id")[0m
+  [1m[35m (5.4ms)[0m  [1m[35mCREATE TABLE "beds" ("id" serial primary key, "hospital_name" character varying, "hospital_location" character varying, "beds_available" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "patient_id" integer)[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE  INDEX  "index_beds_on_patient_id" ON "beds" USING btree ("patient_id")[0m
+  [1m[35m (4.8ms)[0m  [1m[35mCREATE TABLE "patients" ("id" serial primary key, "patient_no" integer, "first_name" character varying, "last_name" character varying, "diagnosis" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "patients_users" ("patient_id" integer NOT NULL, "user_id" integer NOT NULL)[0m
+  [1m[35m (5.3ms)[0m  [1m[35mCREATE TABLE "pocs" ("id" serial primary key, "home_care" character varying, "meals_on_wheels" character varying, "frozen_meals" character varying, "day_care" character varying, "day_hospital" character varying, "district_nurse" character varying, "physio" character varying, "residential_home" character varying, "nursing_home" character varying, "other" character varying, "notes" character varying, "doa" date, "dod" date, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "patient_id" integer)[0m
+  [1m[35m (3.5ms)[0m  [1m[35mCREATE  INDEX  "index_pocs_on_patient_id" ON "pocs" USING btree ("patient_id")[0m
+  [1m[35m (6.1ms)[0m  [1m[35mCREATE TABLE "users" ("id" serial primary key, "username" character varying, "email" character varying, "password_digest" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (12.3ms)[0m  [1m[35mALTER TABLE "assessments" ADD CONSTRAINT "fk_rails_96f06f7dfb"
+FOREIGN KEY ("patient_id")
+  REFERENCES "patients" ("id")
+[0m
+  [1m[35m (3.6ms)[0m  [1m[35mALTER TABLE "beds" ADD CONSTRAINT "fk_rails_1c68753be7"
+FOREIGN KEY ("patient_id")
+  REFERENCES "patients" ("id")
+[0m
+  [1m[35m (5.7ms)[0m  [1m[35mALTER TABLE "pocs" ADD CONSTRAINT "fk_rails_666e5806c1"
+FOREIGN KEY ("patient_id")
+  REFERENCES "patients" ("id")
+[0m
+  [1m[35m (5.0ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying PRIMARY KEY)[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (2.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES ('20170215165301')[0m
+  [1m[35m (1.4ms)[0m  [1m[32mINSERT INTO schema_migrations (version) VALUES
+('20161227124428'),
+('20161228133253'),
+('20161228134403'),
+('20161228135204'),
+('20161228140135'),
+('20170214192950'),
+('20170215163240'),
+('20170215164333'),
+('20170215164408'),
+('20170215164421');
+
+[0m
+  [1m[35m (3.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.8ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.8ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", 2017-02-17 12:42:57 UTC], ["updated_at", 2017-02-17 12:42:57 UTC]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.8ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (2.5ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (30.8ms)[0m  [1m[35mCREATE TABLE "assessments" ("id" serial primary key, "medically_stable" character varying, "rehab_in_short_term" character varying, "discharge_destination" character varying, "requires_level_of_nursing_care" character varying, "housing_issues" character varying, "under_age_18" character varying, "mental_health_problems" character varying, "requires_respite_care" character varying, "requires_long_term_placement" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "patient_id" integer)[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE  INDEX  "index_assessments_on_patient_id" ON "assessments" USING btree ("patient_id")[0m
+  [1m[35m (6.7ms)[0m  [1m[35mCREATE TABLE "beds" ("id" serial primary key, "hospital_name" character varying, "hospital_location" character varying, "beds_available" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "patient_id" integer)[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE  INDEX  "index_beds_on_patient_id" ON "beds" USING btree ("patient_id")[0m
+  [1m[35m (5.2ms)[0m  [1m[35mCREATE TABLE "patients" ("id" serial primary key, "patient_no" integer, "first_name" character varying, "last_name" character varying, "diagnosis" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "patients_users" ("patient_id" integer NOT NULL, "user_id" integer NOT NULL)[0m
+  [1m[35m (5.0ms)[0m  [1m[35mCREATE TABLE "pocs" ("id" serial primary key, "home_care" character varying, "meals_on_wheels" character varying, "frozen_meals" character varying, "day_care" character varying, "day_hospital" character varying, "district_nurse" character varying, "physio" character varying, "residential_home" character varying, "nursing_home" character varying, "other" character varying, "notes" character varying, "doa" date, "dod" date, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "patient_id" integer)[0m
+  [1m[35m (3.9ms)[0m  [1m[35mCREATE  INDEX  "index_pocs_on_patient_id" ON "pocs" USING btree ("patient_id")[0m
+  [1m[35m (6.0ms)[0m  [1m[35mCREATE TABLE "users" ("id" serial primary key, "username" character varying, "email" character varying, "password_digest" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (7.6ms)[0m  [1m[35mALTER TABLE "assessments" ADD CONSTRAINT "fk_rails_96f06f7dfb"
+FOREIGN KEY ("patient_id")
+  REFERENCES "patients" ("id")
+[0m
+  [1m[35m (7.2ms)[0m  [1m[35mALTER TABLE "beds" ADD CONSTRAINT "fk_rails_1c68753be7"
+FOREIGN KEY ("patient_id")
+  REFERENCES "patients" ("id")
+[0m
+  [1m[35m (3.6ms)[0m  [1m[35mALTER TABLE "pocs" ADD CONSTRAINT "fk_rails_666e5806c1"
+FOREIGN KEY ("patient_id")
+  REFERENCES "patients" ("id")
+[0m
+  [1m[35m (6.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying PRIMARY KEY)[0m
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES ('20170215165301')[0m
+  [1m[35m (0.7ms)[0m  [1m[32mINSERT INTO schema_migrations (version) VALUES
+('20161227124428'),
+('20161228133253'),
+('20161228134403'),
+('20161228135204'),
+('20161228140135'),
+('20170214192950'),
+('20170215163240'),
+('20170215164333'),
+('20170215164408'),
+('20170215164421');
+
+[0m
+  [1m[35m (3.6ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (3.0ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", 2017-02-17 12:42:57 UTC], ["updated_at", 2017-02-17 12:42:57 UTC]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.9ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Started POST "/api/assessments/" for 127.0.0.1 at 2017-02-17 12:47:22 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (2.0ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by AssessmentsController#create as */*
+  Parameters: {"medically_stable"=>"yes", "rehab_in_short_term"=>"no", "discharge_destination"=>"ipswich hospital", "requires_level_of_nursing_care"=>"yes", "housing_issues"=>"no", "under_age_18"=>"no", "mental_health_problems"=>"yes", "requires_respite_care"=>"yes", "requires_long_term_placement"=>"yes", "assessment"=>{"medically_stable"=>"yes", "rehab_in_short_term"=>"no", "discharge_destination"=>"ipswich hospital", "requires_level_of_nursing_care"=>"yes", "housing_issues"=>"no", "under_age_18"=>"no", "mental_health_problems"=>"yes", "requires_respite_care"=>"yes", "requires_long_term_placement"=>"yes"}}
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.14ms)
+Filter chain halted as :authenticate_user! rendered or redirected
+Completed 401 Unauthorized in 59ms (Views: 7.4ms | ActiveRecord: 26.7ms)
+
+
+Started POST "/api/login/" for 127.0.0.1 at 2017-02-17 12:47:30 +0000
+Processing by AuthController#login as */*
+  Parameters: {"email"=>"nadia@nz.co", "password"=>"[FILTERED]", "auth"=>{"email"=>"nadia@nz.co", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "nadia@nz.co"], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.13ms)
+Completed 401 Unauthorized in 7ms (Views: 1.8ms | ActiveRecord: 1.9ms)
+
+
+Started POST "/api/login/" for 127.0.0.1 at 2017-02-17 12:47:56 +0000
+Processing by AuthController#login as */*
+  Parameters: {"email"=>"nadia@nz.co", "password"=>"[FILTERED]", "auth"=>{"email"=>"nadia@nz.co", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "nadia@nz.co"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.07ms)
+Completed 401 Unauthorized in 2ms (Views: 0.6ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/api/login/" for 127.0.0.1 at 2017-02-17 12:48:27 +0000
+Processing by AuthController#login as */*
+  Parameters: {"email"=>"nadia@nz.co", "password"=>"[FILTERED]", "auth"=>{"email"=>"nadia@nz.co", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "nadia@nz.co"], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.07ms)
+Completed 401 Unauthorized in 2ms (Views: 0.6ms | ActiveRecord: 0.3ms)
+
+
+  [1m[36mActiveRecord::SchemaMigration Load (5.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (2.9ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[35m (130.8ms)[0m  [1m[35mDROP DATABASE IF EXISTS "bedblocking-project-api_development"[0m
+  [1m[35m (131.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "bedblocking-project-api_test"[0m
+  [1m[35m (1707.6ms)[0m  [1m[35mCREATE DATABASE "bedblocking-project-api_development" ENCODING = 'unicode'[0m
+  [1m[35m (447.4ms)[0m  [1m[35mCREATE DATABASE "bedblocking-project-api_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (2.4ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (24.2ms)[0m  [1m[35mCREATE TABLE "assessments" ("id" serial primary key, "medically_stable" character varying, "rehab_in_short_term" character varying, "discharge_destination" character varying, "requires_level_of_nursing_care" character varying, "housing_issues" character varying, "under_age_18" character varying, "mental_health_problems" character varying, "requires_respite_care" character varying, "requires_long_term_placement" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "patient_id" integer)[0m
+  [1m[35m (3.8ms)[0m  [1m[35mCREATE  INDEX  "index_assessments_on_patient_id" ON "assessments" USING btree ("patient_id")[0m
+  [1m[35m (5.0ms)[0m  [1m[35mCREATE TABLE "beds" ("id" serial primary key, "hospital_name" character varying, "hospital_location" character varying, "beds_available" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "patient_id" integer)[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE  INDEX  "index_beds_on_patient_id" ON "beds" USING btree ("patient_id")[0m
+  [1m[35m (4.6ms)[0m  [1m[35mCREATE TABLE "patients" ("id" serial primary key, "patient_no" integer, "first_name" character varying, "last_name" character varying, "diagnosis" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "patients_users" ("patient_id" integer NOT NULL, "user_id" integer NOT NULL)[0m
+  [1m[35m (5.9ms)[0m  [1m[35mCREATE TABLE "pocs" ("id" serial primary key, "home_care" character varying, "meals_on_wheels" character varying, "frozen_meals" character varying, "day_care" character varying, "day_hospital" character varying, "district_nurse" character varying, "physio" character varying, "residential_home" character varying, "nursing_home" character varying, "other" character varying, "notes" character varying, "doa" date, "dod" date, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "patient_id" integer)[0m
+  [1m[35m (3.7ms)[0m  [1m[35mCREATE  INDEX  "index_pocs_on_patient_id" ON "pocs" USING btree ("patient_id")[0m
+  [1m[35m (7.2ms)[0m  [1m[35mCREATE TABLE "users" ("id" serial primary key, "username" character varying, "email" character varying, "password_digest" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (11.6ms)[0m  [1m[35mALTER TABLE "assessments" ADD CONSTRAINT "fk_rails_96f06f7dfb"
+FOREIGN KEY ("patient_id")
+  REFERENCES "patients" ("id")
+[0m
+  [1m[35m (3.5ms)[0m  [1m[35mALTER TABLE "beds" ADD CONSTRAINT "fk_rails_1c68753be7"
+FOREIGN KEY ("patient_id")
+  REFERENCES "patients" ("id")
+[0m
+  [1m[35m (3.6ms)[0m  [1m[35mALTER TABLE "pocs" ADD CONSTRAINT "fk_rails_666e5806c1"
+FOREIGN KEY ("patient_id")
+  REFERENCES "patients" ("id")
+[0m
+  [1m[35m (5.9ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying PRIMARY KEY)[0m
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES ('20170215165301')[0m
+  [1m[35m (0.6ms)[0m  [1m[32mINSERT INTO schema_migrations (version) VALUES
+('20161227124428'),
+('20161228133253'),
+('20161228134403'),
+('20161228135204'),
+('20161228140135'),
+('20170214192950'),
+('20170215163240'),
+('20170215164333'),
+('20170215164408'),
+('20170215164421');
+
+[0m
+  [1m[35m (6.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.4ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", 2017-02-17 12:49:27 UTC], ["updated_at", 2017-02-17 12:49:27 UTC]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (2.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (2.4ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (25.8ms)[0m  [1m[35mCREATE TABLE "assessments" ("id" serial primary key, "medically_stable" character varying, "rehab_in_short_term" character varying, "discharge_destination" character varying, "requires_level_of_nursing_care" character varying, "housing_issues" character varying, "under_age_18" character varying, "mental_health_problems" character varying, "requires_respite_care" character varying, "requires_long_term_placement" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "patient_id" integer)[0m
+  [1m[35m (4.3ms)[0m  [1m[35mCREATE  INDEX  "index_assessments_on_patient_id" ON "assessments" USING btree ("patient_id")[0m
+  [1m[35m (6.9ms)[0m  [1m[35mCREATE TABLE "beds" ("id" serial primary key, "hospital_name" character varying, "hospital_location" character varying, "beds_available" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "patient_id" integer)[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE  INDEX  "index_beds_on_patient_id" ON "beds" USING btree ("patient_id")[0m
+  [1m[35m (5.0ms)[0m  [1m[35mCREATE TABLE "patients" ("id" serial primary key, "patient_no" integer, "first_name" character varying, "last_name" character varying, "diagnosis" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE TABLE "patients_users" ("patient_id" integer NOT NULL, "user_id" integer NOT NULL)[0m
+  [1m[35m (5.8ms)[0m  [1m[35mCREATE TABLE "pocs" ("id" serial primary key, "home_care" character varying, "meals_on_wheels" character varying, "frozen_meals" character varying, "day_care" character varying, "day_hospital" character varying, "district_nurse" character varying, "physio" character varying, "residential_home" character varying, "nursing_home" character varying, "other" character varying, "notes" character varying, "doa" date, "dod" date, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "patient_id" integer)[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE  INDEX  "index_pocs_on_patient_id" ON "pocs" USING btree ("patient_id")[0m
+  [1m[35m (6.1ms)[0m  [1m[35mCREATE TABLE "users" ("id" serial primary key, "username" character varying, "email" character varying, "password_digest" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (8.9ms)[0m  [1m[35mALTER TABLE "assessments" ADD CONSTRAINT "fk_rails_96f06f7dfb"
+FOREIGN KEY ("patient_id")
+  REFERENCES "patients" ("id")
+[0m
+  [1m[35m (5.8ms)[0m  [1m[35mALTER TABLE "beds" ADD CONSTRAINT "fk_rails_1c68753be7"
+FOREIGN KEY ("patient_id")
+  REFERENCES "patients" ("id")
+[0m
+  [1m[35m (3.6ms)[0m  [1m[35mALTER TABLE "pocs" ADD CONSTRAINT "fk_rails_666e5806c1"
+FOREIGN KEY ("patient_id")
+  REFERENCES "patients" ("id")
+[0m
+  [1m[35m (4.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying PRIMARY KEY)[0m
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES ('20170215165301')[0m
+  [1m[35m (0.6ms)[0m  [1m[32mINSERT INTO schema_migrations (version) VALUES
+('20161227124428'),
+('20161228133253'),
+('20161228134403'),
+('20161228135204'),
+('20161228140135'),
+('20170214192950'),
+('20170215163240'),
+('20170215164333'),
+('20170215164408'),
+('20170215164421');
+
+[0m
+  [1m[35m (6.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (2.0ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", 2017-02-17 12:49:27 UTC], ["updated_at", 2017-02-17 12:49:27 UTC]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.8ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (8.9ms)[0m  [1m[35mTRUNCATE users RESTART IDENTITY CASCADE[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (1.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "mickyginger"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "mike.hayden@ga.co"], ["LIMIT", 1]]
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "mickyginger"], ["email", "mike.hayden@ga.co"], ["password_digest", "$2a$10$e1XMxoPiZpO7Cc/pxNHbquU9Dj97wC6.PbgP5aUUFNV3P4uN8Aft."], ["created_at", 2017-02-17 12:49:28 UTC], ["updated_at", 2017-02-17 12:49:28 UTC]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "emilyi"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "emily.isacke@ga.co"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "emilyi"], ["email", "emily.isacke@ga.co"], ["password_digest", "$2a$10$VGviPerKkE2V8vGZf09KfOzy9NmQ5.pIMR.7iUNK1gRJW6RGpwiQy"], ["created_at", 2017-02-17 12:49:28 UTC], ["updated_at", 2017-02-17 12:49:28 UTC]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "cynthia"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "cynthia@cynthia.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "cynthia"], ["email", "cynthia@cynthia.com"], ["password_digest", "$2a$10$yKf2FWNy0BETy10FlHnGH.Ol666i5Hk961iGtb8Bfa/LaSUd5Idia"], ["created_at", 2017-02-17 12:49:28 UTC], ["updated_at", 2017-02-17 12:49:28 UTC]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "nadia"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "nadia@nz.co"], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "nadia"], ["email", "nadia@nz.co"], ["password_digest", "$2a$10$Qrtk2RzrCQzhqGHLRgrlFOAkTZcVqYAlsoSJxSKcF7PVHkFoqGWK6"], ["created_at", 2017-02-17 12:49:28 UTC], ["updated_at", 2017-02-17 12:49:28 UTC]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Load (4.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (2.7ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[35m (122.7ms)[0m  [1m[35mDROP DATABASE IF EXISTS "bedblocking-project-api_development"[0m
+  [1m[35m (125.5ms)[0m  [1m[35mDROP DATABASE IF EXISTS "bedblocking-project-api_test"[0m
+  [1m[35m (1769.8ms)[0m  [1m[35mCREATE DATABASE "bedblocking-project-api_development" ENCODING = 'unicode'[0m
+  [1m[35m (484.8ms)[0m  [1m[35mCREATE DATABASE "bedblocking-project-api_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (2.3ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (31.7ms)[0m  [1m[35mCREATE TABLE "assessments" ("id" serial primary key, "medically_stable" character varying, "rehab_in_short_term" character varying, "discharge_destination" character varying, "requires_level_of_nursing_care" character varying, "housing_issues" character varying, "under_age_18" character varying, "mental_health_problems" character varying, "requires_respite_care" character varying, "requires_long_term_placement" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "patient_id" integer)[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE  INDEX  "index_assessments_on_patient_id" ON "assessments" USING btree ("patient_id")[0m
+  [1m[35m (8.6ms)[0m  [1m[35mCREATE TABLE "beds" ("id" serial primary key, "hospital_name" character varying, "hospital_location" character varying, "beds_available" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "patient_id" integer)[0m
+  [1m[35m (2.1ms)[0m  [1m[35mCREATE  INDEX  "index_beds_on_patient_id" ON "beds" USING btree ("patient_id")[0m
+  [1m[35m (4.7ms)[0m  [1m[35mCREATE TABLE "patients" ("id" serial primary key, "patient_no" integer, "first_name" character varying, "last_name" character varying, "diagnosis" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE TABLE "patients_users" ("patient_id" integer NOT NULL, "user_id" integer NOT NULL)[0m
+  [1m[35m (6.9ms)[0m  [1m[35mCREATE TABLE "pocs" ("id" serial primary key, "home_care" character varying, "meals_on_wheels" character varying, "frozen_meals" character varying, "day_care" character varying, "day_hospital" character varying, "district_nurse" character varying, "physio" character varying, "residential_home" character varying, "nursing_home" character varying, "other" character varying, "notes" character varying, "doa" date, "dod" date, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "patient_id" integer)[0m
+  [1m[35m (1.7ms)[0m  [1m[35mCREATE  INDEX  "index_pocs_on_patient_id" ON "pocs" USING btree ("patient_id")[0m
+  [1m[35m (6.9ms)[0m  [1m[35mCREATE TABLE "users" ("id" serial primary key, "username" character varying, "email" character varying, "password_digest" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (7.2ms)[0m  [1m[35mALTER TABLE "assessments" ADD CONSTRAINT "fk_rails_96f06f7dfb"
+FOREIGN KEY ("patient_id")
+  REFERENCES "patients" ("id")
+[0m
+  [1m[35m (3.8ms)[0m  [1m[35mALTER TABLE "beds" ADD CONSTRAINT "fk_rails_1c68753be7"
+FOREIGN KEY ("patient_id")
+  REFERENCES "patients" ("id")
+[0m
+  [1m[35m (3.6ms)[0m  [1m[35mALTER TABLE "pocs" ADD CONSTRAINT "fk_rails_666e5806c1"
+FOREIGN KEY ("patient_id")
+  REFERENCES "patients" ("id")
+[0m
+  [1m[35m (6.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying PRIMARY KEY)[0m
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES ('20170215165301')[0m
+  [1m[35m (0.6ms)[0m  [1m[32mINSERT INTO schema_migrations (version) VALUES
+('20161227124428'),
+('20161228133253'),
+('20161228134403'),
+('20161228135204'),
+('20161228140135'),
+('20170214192950'),
+('20170215163240'),
+('20170215164333'),
+('20170215164408'),
+('20170215164421');
+
+[0m
+  [1m[35m (4.0ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (2.9ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", 2017-02-17 12:50:53 UTC], ["updated_at", 2017-02-17 12:50:53 UTC]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (3.4ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (25.2ms)[0m  [1m[35mCREATE TABLE "assessments" ("id" serial primary key, "medically_stable" character varying, "rehab_in_short_term" character varying, "discharge_destination" character varying, "requires_level_of_nursing_care" character varying, "housing_issues" character varying, "under_age_18" character varying, "mental_health_problems" character varying, "requires_respite_care" character varying, "requires_long_term_placement" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "patient_id" integer)[0m
+  [1m[35m (2.6ms)[0m  [1m[35mCREATE  INDEX  "index_assessments_on_patient_id" ON "assessments" USING btree ("patient_id")[0m
+  [1m[35m (6.4ms)[0m  [1m[35mCREATE TABLE "beds" ("id" serial primary key, "hospital_name" character varying, "hospital_location" character varying, "beds_available" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "patient_id" integer)[0m
+  [1m[35m (1.6ms)[0m  [1m[35mCREATE  INDEX  "index_beds_on_patient_id" ON "beds" USING btree ("patient_id")[0m
+  [1m[35m (10.3ms)[0m  [1m[35mCREATE TABLE "patients" ("id" serial primary key, "patient_no" integer, "first_name" character varying, "last_name" character varying, "diagnosis" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (1.2ms)[0m  [1m[35mCREATE TABLE "patients_users" ("patient_id" integer NOT NULL, "user_id" integer NOT NULL)[0m
+  [1m[35m (6.4ms)[0m  [1m[35mCREATE TABLE "pocs" ("id" serial primary key, "home_care" character varying, "meals_on_wheels" character varying, "frozen_meals" character varying, "day_care" character varying, "day_hospital" character varying, "district_nurse" character varying, "physio" character varying, "residential_home" character varying, "nursing_home" character varying, "other" character varying, "notes" character varying, "doa" date, "dod" date, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "patient_id" integer)[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE  INDEX  "index_pocs_on_patient_id" ON "pocs" USING btree ("patient_id")[0m
+  [1m[35m (6.0ms)[0m  [1m[35mCREATE TABLE "users" ("id" serial primary key, "username" character varying, "email" character varying, "password_digest" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (6.9ms)[0m  [1m[35mALTER TABLE "assessments" ADD CONSTRAINT "fk_rails_96f06f7dfb"
+FOREIGN KEY ("patient_id")
+  REFERENCES "patients" ("id")
+[0m
+  [1m[35m (3.6ms)[0m  [1m[35mALTER TABLE "beds" ADD CONSTRAINT "fk_rails_1c68753be7"
+FOREIGN KEY ("patient_id")
+  REFERENCES "patients" ("id")
+[0m
+  [1m[35m (4.0ms)[0m  [1m[35mALTER TABLE "pocs" ADD CONSTRAINT "fk_rails_666e5806c1"
+FOREIGN KEY ("patient_id")
+  REFERENCES "patients" ("id")
+[0m
+  [1m[35m (5.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying PRIMARY KEY)[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES ('20170215165301')[0m
+  [1m[35m (0.6ms)[0m  [1m[32mINSERT INTO schema_migrations (version) VALUES
+('20161227124428'),
+('20161228133253'),
+('20161228134403'),
+('20161228135204'),
+('20161228140135'),
+('20170214192950'),
+('20170215163240'),
+('20170215164333'),
+('20170215164408'),
+('20170215164421');
+
+[0m
+  [1m[35m (6.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", 2017-02-17 12:50:53 UTC], ["updated_at", 2017-02-17 12:50:53 UTC]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Load (2.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (8.0ms)[0m  [1m[35mTRUNCATE users RESTART IDENTITY CASCADE[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (1.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "mickyginger"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "mike.hayden@ga.co"], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "mickyginger"], ["email", "mike.hayden@ga.co"], ["password_digest", "$2a$10$oG5nUIZvOniRctDMV/ruT.hkUXaIfmmec00wgn78a1hAJwNK6N3HW"], ["created_at", 2017-02-17 12:50:54 UTC], ["updated_at", 2017-02-17 12:50:54 UTC]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "emilyi"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "emily.isacke@ga.co"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "emilyi"], ["email", "emily.isacke@ga.co"], ["password_digest", "$2a$10$/EH0ijN1xO1fI.WWQryX.OUnMgXTtsu4IwEEN7TP6bcialGoPoAca"], ["created_at", 2017-02-17 12:50:54 UTC], ["updated_at", 2017-02-17 12:50:54 UTC]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "cynthia"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "cynthia@cynthia.com"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "cynthia"], ["email", "cynthia@cynthia.com"], ["password_digest", "$2a$10$XUfHqjULmo7QSl1kseP5huy2Yaf0DDoYRImG4si2gjnc.amFCCcIm"], ["created_at", 2017-02-17 12:50:54 UTC], ["updated_at", 2017-02-17 12:50:54 UTC]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "nadia"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "nadia@nz.co"], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "email", "password_digest", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "nadia"], ["email", "nadia@nz.co"], ["password_digest", "$2a$10$DQR8HwEfVGsleSL/kp1hi.dclfhiEqTe9.OXNOy4BC7epRteChIFO"], ["created_at", 2017-02-17 12:50:54 UTC], ["updated_at", 2017-02-17 12:50:54 UTC]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (2.3ms)[0m  [1m[32mINSERT INTO "patients" ("patient_no", "first_name", "last_name", "diagnosis", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["patient_no", 323324], ["first_name", "patient"], ["last_name", "0"], ["diagnosis", "cancer"], ["created_at", 2017-02-17 12:50:54 UTC], ["updated_at", 2017-02-17 12:50:54 UTC]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (3.0ms)[0m  [1m[32mINSERT INTO "assessments" ("medically_stable", "rehab_in_short_term", "discharge_destination", "requires_level_of_nursing_care", "housing_issues", "under_age_18", "mental_health_problems", "requires_respite_care", "requires_long_term_placement", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["medically_stable", "yes"], ["rehab_in_short_term", "no"], ["discharge_destination", "ipswich hospital"], ["requires_level_of_nursing_care", "yes"], ["housing_issues", "no"], ["under_age_18", "no"], ["mental_health_problems", "yes"], ["requires_respite_care", "yes"], ["requires_long_term_placement", "yes"], ["created_at", 2017-02-17 12:50:54 UTC], ["updated_at", 2017-02-17 12:50:54 UTC]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mPatient Load (0.4ms)[0m  [1m[34mSELECT "patients".* FROM "patients"[0m
+  [1m[36mAssessment Load (0.5ms)[0m  [1m[34mSELECT "assessments".* FROM "assessments"[0m
+Started POST "/api/patients/" for 127.0.0.1 at 2017-02-17 12:51:16 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (2.0ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PatientsController#create as */*
+  Parameters: {"patient_no"=>1212, "first_name"=>"patient", "last_name"=>"2", "dob"=>"11/11/2011", "diagnosis"=>"cancer", "patient"=>{"patient_no"=>1212, "first_name"=>"patient", "last_name"=>"2", "diagnosis"=>"cancer"}}
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (2.4ms)[0m  [1m[32mINSERT INTO "patients" ("patient_no", "first_name", "last_name", "diagnosis", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["patient_no", 1212], ["first_name", "patient"], ["last_name", "2"], ["diagnosis", "cancer"], ["created_at", 2017-02-17 12:51:17 UTC], ["updated_at", 2017-02-17 12:51:17 UTC]]
+  [1m[35m (1.4ms)[0m  [1m[35mCOMMIT[0m
+[active_model_serializers]   [1m[36mAssessment Load (3.8ms)[0m  [1m[34mSELECT "assessments".* FROM "assessments" WHERE "assessments"."patient_id" = $1[0m  [["patient_id", 2]]
+[active_model_serializers]   [1m[36mPoc Load (2.0ms)[0m  [1m[34mSELECT "pocs".* FROM "pocs" WHERE "pocs"."patient_id" = $1[0m  [["patient_id", 2]]
+[active_model_serializers]   [1m[36mUser Load (3.8ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "patients_users" ON "users"."id" = "patients_users"."user_id" WHERE "patients_users"."patient_id" = $1[0m  [["patient_id", 2]]
+[active_model_serializers] Rendered PatientSerializer with ActiveModelSerializers::Adapter::Attributes (71.69ms)
+Completed 201 Created in 160ms (Views: 99.7ms | ActiveRecord: 29.5ms)
+
+
+Started GET "/api/assessments/" for 127.0.0.1 at 2017-02-17 12:51:32 +0000
+Processing by AssessmentsController#index as */*
+  Parameters: {"medically_stable"=>"yes", "rehab_in_short_term"=>"no", "discharge_destination"=>"ipswich hospital", "requires_level_of_nursing_care"=>"yes", "housing_issues"=>"no", "under_age_18"=>"no", "mental_health_problems"=>"yes", "requires_respite_care"=>"yes", "requires_long_term_placement"=>"yes", "assessment"=>{"medically_stable"=>"yes", "rehab_in_short_term"=>"no", "discharge_destination"=>"ipswich hospital", "requires_level_of_nursing_care"=>"yes", "housing_issues"=>"no", "under_age_18"=>"no", "mental_health_problems"=>"yes", "requires_respite_care"=>"yes", "requires_long_term_placement"=>"yes"}}
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mAssessment Load (3.3ms)[0m  [1m[34mSELECT "assessments".* FROM "assessments"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (21.48ms)
+Completed 200 OK in 55ms (Views: 40.8ms | ActiveRecord: 14.6ms)
+
+
+Started POST "/api/beds/" for 127.0.0.1 at 2017-02-17 12:54:29 +0000
+Processing by BedsController#create as */*
+  Parameters: {"hospital_name"=>"ipswich Hospital", "hospital_location"=>"ipswich", "beds_available"=>6, "bed"=>{"hospital_name"=>"ipswich Hospital", "hospital_location"=>"ipswich", "beds_available"=>6}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with ActiveModel::Errors (0.13ms)
+Completed 422 Unprocessable Entity in 30ms (Views: 5.6ms | ActiveRecord: 7.6ms)
+
+
+Started GET "/api/patients/" for 127.0.0.1 at 2017-02-17 12:54:48 +0000
+Processing by PatientsController#index as */*
+  Parameters: {"patient_no"=>1212, "first_name"=>"patient", "last_name"=>"2", "dob"=>"11/11/2011", "diagnosis"=>"cancer", "patient"=>{"patient_no"=>1212, "first_name"=>"patient", "last_name"=>"2", "diagnosis"=>"cancer"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mPatient Load (3.6ms)[0m  [1m[34mSELECT "patients".* FROM "patients"[0m
+[active_model_serializers]   [1m[36mAssessment Load (0.3ms)[0m  [1m[34mSELECT "assessments".* FROM "assessments" WHERE "assessments"."patient_id" = $1[0m  [["patient_id", 1]]
+[active_model_serializers]   [1m[36mPoc Load (1.9ms)[0m  [1m[34mSELECT "pocs".* FROM "pocs" WHERE "pocs"."patient_id" = $1[0m  [["patient_id", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "patients_users" ON "users"."id" = "patients_users"."user_id" WHERE "patients_users"."patient_id" = $1[0m  [["patient_id", 1]]
+[active_model_serializers]   [1m[36mAssessment Load (0.3ms)[0m  [1m[34mSELECT "assessments".* FROM "assessments" WHERE "assessments"."patient_id" = $1[0m  [["patient_id", 2]]
+[active_model_serializers]   [1m[36mPoc Load (0.6ms)[0m  [1m[34mSELECT "pocs".* FROM "pocs" WHERE "pocs"."patient_id" = $1[0m  [["patient_id", 2]]
+[active_model_serializers]   [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "patients_users" ON "users"."id" = "patients_users"."user_id" WHERE "patients_users"."patient_id" = $1[0m  [["patient_id", 2]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (21.16ms)
+Completed 200 OK in 28ms (Views: 18.4ms | ActiveRecord: 8.2ms)
+
+
+Started POST "/api/beds/" for 127.0.0.1 at 2017-02-17 12:56:08 +0000
+Processing by BedsController#create as */*
+  Parameters: {"hospital_name"=>"ipswich Hospital", "hospital_location"=>"ipswich", "beds_available"=>6, "patient_id"=>2, "bed"=>{"hospital_name"=>"ipswich Hospital", "hospital_location"=>"ipswich", "beds_available"=>6, "patient_id"=>2}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPatient Load (0.3ms)[0m  [1m[34mSELECT  "patients".* FROM "patients" WHERE "patients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (5.3ms)[0m  [1m[32mINSERT INTO "beds" ("hospital_name", "hospital_location", "beds_available", "created_at", "updated_at", "patient_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["hospital_name", "ipswich Hospital"], ["hospital_location", "ipswich"], ["beds_available", "6"], ["created_at", 2017-02-17 12:56:08 UTC], ["updated_at", 2017-02-17 12:56:08 UTC], ["patient_id", 2]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+[active_model_serializers] Rendered BedSerializer with ActiveModelSerializers::Adapter::Attributes (1.3ms)
+Completed 201 Created in 22ms (Views: 6.7ms | ActiveRecord: 7.5ms)
+
+
+Started GET "/api/assessments/" for 127.0.0.1 at 2017-02-17 12:56:39 +0000
+Processing by AssessmentsController#index as */*
+  Parameters: {"medically_stable"=>"yes", "rehab_in_short_term"=>"no", "discharge_destination"=>"ipswich hospital", "requires_level_of_nursing_care"=>"yes", "housing_issues"=>"no", "under_age_18"=>"no", "mental_health_problems"=>"yes", "requires_respite_care"=>"yes", "requires_long_term_placement"=>"yes", "patient_id"=>2, "assessment"=>{"medically_stable"=>"yes", "rehab_in_short_term"=>"no", "discharge_destination"=>"ipswich hospital", "requires_level_of_nursing_care"=>"yes", "housing_issues"=>"no", "under_age_18"=>"no", "mental_health_problems"=>"yes", "requires_respite_care"=>"yes", "requires_long_term_placement"=>"yes", "patient_id"=>2}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mAssessment Load (0.4ms)[0m  [1m[34mSELECT "assessments".* FROM "assessments"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.46ms)
+Completed 200 OK in 4ms (Views: 1.6ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/api/assessments/" for 127.0.0.1 at 2017-02-17 12:56:48 +0000
+Processing by AssessmentsController#create as */*
+  Parameters: {"medically_stable"=>"yes", "rehab_in_short_term"=>"no", "discharge_destination"=>"ipswich hospital", "requires_level_of_nursing_care"=>"yes", "housing_issues"=>"no", "under_age_18"=>"no", "mental_health_problems"=>"yes", "requires_respite_care"=>"yes", "requires_long_term_placement"=>"yes", "patient_id"=>2, "assessment"=>{"medically_stable"=>"yes", "rehab_in_short_term"=>"no", "discharge_destination"=>"ipswich hospital", "requires_level_of_nursing_care"=>"yes", "housing_issues"=>"no", "under_age_18"=>"no", "mental_health_problems"=>"yes", "requires_respite_care"=>"yes", "requires_long_term_placement"=>"yes", "patient_id"=>2}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPatient Load (0.4ms)[0m  [1m[34mSELECT  "patients".* FROM "patients" WHERE "patients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "assessments" ("medically_stable", "rehab_in_short_term", "discharge_destination", "requires_level_of_nursing_care", "housing_issues", "under_age_18", "mental_health_problems", "requires_respite_care", "requires_long_term_placement", "created_at", "updated_at", "patient_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12) RETURNING "id"[0m  [["medically_stable", "yes"], ["rehab_in_short_term", "no"], ["discharge_destination", "ipswich hospital"], ["requires_level_of_nursing_care", "yes"], ["housing_issues", "no"], ["under_age_18", "no"], ["mental_health_problems", "yes"], ["requires_respite_care", "yes"], ["requires_long_term_placement", "yes"], ["created_at", 2017-02-17 12:56:48 UTC], ["updated_at", 2017-02-17 12:56:48 UTC], ["patient_id", 2]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+[active_model_serializers] Rendered AssessmentSerializer with ActiveModelSerializers::Adapter::Attributes (1.04ms)
+Completed 201 Created in 10ms (Views: 2.3ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/api/pocs/" for 127.0.0.1 at 2017-02-17 13:01:26 +0000
+Processing by PocsController#index as */*
+  Parameters: {"home_care"=>"yes", "meals_on_wheels"=>"yes", "frozen_meals"=>"no, fresh only", "day_care"=>"yes", "day_hospital"=>"no", "district_nurse"=>"yes", "physio"=>"yes", "residential_home"=>"yes", "nursing_home"=>"no", "other"=>"no notes at present", "notes"=>"n/a", "patient_id"=>1, "poc"=>{"home_care"=>"yes", "meals_on_wheels"=>"yes", "frozen_meals"=>"no, fresh only", "day_care"=>"yes", "day_hospital"=>"no", "district_nurse"=>"yes", "physio"=>"yes", "residential_home"=>"yes", "nursing_home"=>"no", "other"=>"no notes at present", "notes"=>"n/a", "patient_id"=>1}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mPoc Load (0.4ms)[0m  [1m[34mSELECT "pocs".* FROM "pocs"[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (0.08ms)
+Completed 200 OK in 4ms (Views: 1.0ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/api/pocs/" for 127.0.0.1 at 2017-02-17 13:01:39 +0000
+Processing by PocsController#create as */*
+  Parameters: {"home_care"=>"yes", "meals_on_wheels"=>"yes", "frozen_meals"=>"no, fresh only", "day_care"=>"yes", "day_hospital"=>"no", "district_nurse"=>"yes", "physio"=>"yes", "residential_home"=>"yes", "nursing_home"=>"no", "other"=>"no notes at present", "notes"=>"n/a", "patient_id"=>1, "poc"=>{"home_care"=>"yes", "meals_on_wheels"=>"yes", "frozen_meals"=>"no, fresh only", "day_care"=>"yes", "day_hospital"=>"no", "district_nurse"=>"yes", "physio"=>"yes", "residential_home"=>"yes", "nursing_home"=>"no", "other"=>"no notes at present", "notes"=>"n/a", "patient_id"=>1}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mPatient Load (0.3ms)[0m  [1m[34mSELECT  "patients".* FROM "patients" WHERE "patients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (1.4ms)[0m  [1m[32mINSERT INTO "pocs" ("home_care", "meals_on_wheels", "frozen_meals", "day_care", "day_hospital", "district_nurse", "physio", "residential_home", "nursing_home", "other", "notes", "created_at", "updated_at", "patient_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) RETURNING "id"[0m  [["home_care", "yes"], ["meals_on_wheels", "yes"], ["frozen_meals", "no, fresh only"], ["day_care", "yes"], ["day_hospital", "no"], ["district_nurse", "yes"], ["physio", "yes"], ["residential_home", "yes"], ["nursing_home", "no"], ["other", "no notes at present"], ["notes", "n/a"], ["created_at", 2017-02-17 13:01:39 UTC], ["updated_at", 2017-02-17 13:01:39 UTC], ["patient_id", 1]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+[active_model_serializers] Rendered PocSerializer with ActiveModelSerializers::Adapter::Attributes (1.46ms)
+Completed 201 Created in 30ms (Views: 7.2ms | ActiveRecord: 4.9ms)
+
+
+Started GET "/api/patients/" for 127.0.0.1 at 2017-02-17 13:10:21 +0000
+Processing by PatientsController#index as */*
+  Parameters: {"patient_no"=>1212, "first_name"=>"patient", "last_name"=>"2", "dob"=>"11/11/2011", "diagnosis"=>"cancer", "patient"=>{"patient_no"=>1212, "first_name"=>"patient", "last_name"=>"2", "diagnosis"=>"cancer"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mPatient Load (1.3ms)[0m  [1m[34mSELECT "patients".* FROM "patients"[0m
+[active_model_serializers]   [1m[36mAssessment Load (0.4ms)[0m  [1m[34mSELECT "assessments".* FROM "assessments" WHERE "assessments"."patient_id" = $1[0m  [["patient_id", 1]]
+[active_model_serializers]   [1m[36mPoc Load (0.4ms)[0m  [1m[34mSELECT "pocs".* FROM "pocs" WHERE "pocs"."patient_id" = $1[0m  [["patient_id", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "patients_users" ON "users"."id" = "patients_users"."user_id" WHERE "patients_users"."patient_id" = $1[0m  [["patient_id", 1]]
+[active_model_serializers]   [1m[36mAssessment Load (0.6ms)[0m  [1m[34mSELECT "assessments".* FROM "assessments" WHERE "assessments"."patient_id" = $1[0m  [["patient_id", 2]]
+[active_model_serializers]   [1m[36mPoc Load (0.4ms)[0m  [1m[34mSELECT "pocs".* FROM "pocs" WHERE "pocs"."patient_id" = $1[0m  [["patient_id", 2]]
+[active_model_serializers]   [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "patients_users" ON "users"."id" = "patients_users"."user_id" WHERE "patients_users"."patient_id" = $1[0m  [["patient_id", 2]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (19.79ms)
+Completed 200 OK in 24ms (Views: 18.4ms | ActiveRecord: 4.3ms)
+
+
+Started GET "/api/assessments/" for 127.0.0.1 at 2017-02-17 13:10:57 +0000
+Processing by AssessmentsController#index as */*
+  Parameters: {"medically_stable"=>"yes", "rehab_in_short_term"=>"no", "discharge_destination"=>"ipswich hospital", "requires_level_of_nursing_care"=>"yes", "housing_issues"=>"no", "under_age_18"=>"no", "mental_health_problems"=>"yes", "requires_respite_care"=>"yes", "requires_long_term_placement"=>"yes", "patient_id"=>2, "assessment"=>{"medically_stable"=>"yes", "rehab_in_short_term"=>"no", "discharge_destination"=>"ipswich hospital", "requires_level_of_nursing_care"=>"yes", "housing_issues"=>"no", "under_age_18"=>"no", "mental_health_problems"=>"yes", "requires_respite_care"=>"yes", "requires_long_term_placement"=>"yes", "patient_id"=>2}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mAssessment Load (0.4ms)[0m  [1m[34mSELECT "assessments".* FROM "assessments"[0m
+[active_model_serializers]   [1m[36mPatient Load (0.3ms)[0m  [1m[34mSELECT  "patients".* FROM "patients" WHERE "patients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (2.46ms)
+Completed 200 OK in 5ms (Views: 3.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/api/beds/" for 127.0.0.1 at 2017-02-17 13:11:41 +0000
+Processing by BedsController#index as */*
+  Parameters: {"hospital_name"=>"ipswich Hospital", "hospital_location"=>"ipswich", "beds_available"=>6, "patient_id"=>2, "bed"=>{"hospital_name"=>"ipswich Hospital", "hospital_location"=>"ipswich", "beds_available"=>6, "patient_id"=>2}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mBed Load (2.8ms)[0m  [1m[34mSELECT "beds".* FROM "beds"[0m
+[active_model_serializers]   [1m[36mPatient Load (0.3ms)[0m  [1m[34mSELECT  "patients".* FROM "patients" WHERE "patients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (2.5ms)
+Completed 200 OK in 9ms (Views: 3.9ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/api/pocs/" for 127.0.0.1 at 2017-02-17 13:11:51 +0000
+Processing by PocsController#index as */*
+  Parameters: {"home_care"=>"yes", "meals_on_wheels"=>"yes", "frozen_meals"=>"no, fresh only", "day_care"=>"yes", "day_hospital"=>"no", "district_nurse"=>"yes", "physio"=>"yes", "residential_home"=>"yes", "nursing_home"=>"no", "other"=>"no notes at present", "notes"=>"n/a", "patient_id"=>1, "poc"=>{"home_care"=>"yes", "meals_on_wheels"=>"yes", "frozen_meals"=>"no, fresh only", "day_care"=>"yes", "day_hospital"=>"no", "district_nurse"=>"yes", "physio"=>"yes", "residential_home"=>"yes", "nursing_home"=>"no", "other"=>"no notes at present", "notes"=>"n/a", "patient_id"=>1}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mPoc Load (0.4ms)[0m  [1m[34mSELECT "pocs".* FROM "pocs"[0m
+[active_model_serializers]   [1m[36mPatient Load (0.3ms)[0m  [1m[34mSELECT  "patients".* FROM "patients" WHERE "patients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (2.2ms)
+Completed 200 OK in 5ms (Views: 3.0ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/api/login/" for 127.0.0.1 at 2017-02-17 13:13:00 +0000
+Processing by AuthController#login as */*
+  Parameters: {"email"=>"nadia@nz.co", "password"=>"[FILTERED]", "auth"=>{"email"=>"nadia@nz.co", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "nadia@nz.co"], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mPatient Load (0.4ms)[0m  [1m[34mSELECT "patients".* FROM "patients" INNER JOIN "patients_users" ON "patients"."id" = "patients_users"."patient_id" WHERE "patients_users"."user_id" = $1[0m  [["user_id", 4]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (10.59ms)
+Completed 200 OK in 95ms (Views: 10.1ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/api/pocs/" for 127.0.0.1 at 2017-02-17 13:27:18 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (3.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PocsController#index as */*
+  Parameters: {"home_care"=>"yes", "meals_on_wheels"=>"yes", "frozen_meals"=>"no, fresh only", "day_care"=>"yes", "day_hospital"=>"no", "district_nurse"=>"yes", "physio"=>"yes", "residential_home"=>"yes", "nursing_home"=>"no", "other"=>"no notes at present", "notes"=>"n/a", "patient_id"=>1, "poc"=>{"home_care"=>"yes", "meals_on_wheels"=>"yes", "frozen_meals"=>"no, fresh only", "day_care"=>"yes", "day_hospital"=>"no", "district_nurse"=>"yes", "physio"=>"yes", "residential_home"=>"yes", "nursing_home"=>"no", "other"=>"no notes at present", "notes"=>"n/a", "patient_id"=>1}}
+  [1m[36mUser Load (5.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mPoc Load (3.9ms)[0m  [1m[34mSELECT "pocs".* FROM "pocs"[0m
+[active_model_serializers]   [1m[36mPatient Load (3.3ms)[0m  [1m[34mSELECT  "patients".* FROM "patients" WHERE "patients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (50.57ms)
+Completed 200 OK in 151ms (Views: 86.2ms | ActiveRecord: 33.1ms)
+
+
