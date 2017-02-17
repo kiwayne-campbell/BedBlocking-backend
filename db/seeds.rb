@@ -36,9 +36,45 @@ Patient.create!([{
   patient_no: 323324,
   first_name: "patient",
   last_name: "0",
-  diagnosis: "cancer",
-  assesment: "yes see notes"
-  }])
+  diagnosis: "cancer"
+}])
+
+Assessment.create!([{
+	medically_stable:"yes",
+  rehab_in_short_term:"no",
+  discharge_destination:"ipswich hospital",
+  requires_level_of_nursing_care:"yes",
+  housing_issues:"no",
+  under_age_18:"no",
+  mental_health_problems:"yes",
+  requires_respite_care:"yes",
+  requires_long_term_placement:"yes"
+}])
+
+Bed.create!([{
+  hospital_name:"ipswich Hospital",
+  hospital_location: "ipswich",
+  beds_available: 6
+}])
+
+Poc.create!([{
+  home_care: "yes",
+  meals_on_wheels: "yes",
+  frozen_meals: "no, fresh only",
+  day_care: "yes",
+  day_hospital: "no",
+  district_nurse: "yes",
+  physio: "yes",
+  residential_home: "yes",
+  nursing_home: "no",
+  other: "no notes at present",
+  notes: "n/a"
+}])
+
+
 
 puts User.all
 puts Patient.all
+puts Assessment.all
+puts Bed.all
+puts Poc.all
