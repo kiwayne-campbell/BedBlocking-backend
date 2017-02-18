@@ -3086,3 +3086,576 @@ Processing by PocsController#index as */*
 Completed 200 OK in 151ms (Views: 86.2ms | ActiveRecord: 33.1ms)
 
 
+Started GET "/api/users" for ::1 at 2017-02-17 13:36:34 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (3.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (3.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+[active_model_serializers]   [1m[36mPatient Load (3.2ms)[0m  [1m[34mSELECT "patients".* FROM "patients" INNER JOIN "patients_users" ON "patients"."id" = "patients_users"."patient_id" WHERE "patients_users"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   [1m[36mPatient Load (0.5ms)[0m  [1m[34mSELECT "patients".* FROM "patients" INNER JOIN "patients_users" ON "patients"."id" = "patients_users"."patient_id" WHERE "patients_users"."user_id" = $1[0m  [["user_id", 2]]
+[active_model_serializers]   [1m[36mPatient Load (0.5ms)[0m  [1m[34mSELECT "patients".* FROM "patients" INNER JOIN "patients_users" ON "patients"."id" = "patients_users"."patient_id" WHERE "patients_users"."user_id" = $1[0m  [["user_id", 3]]
+[active_model_serializers]   [1m[36mPatient Load (0.5ms)[0m  [1m[34mSELECT "patients".* FROM "patients" INNER JOIN "patients_users" ON "patients"."id" = "patients_users"."patient_id" WHERE "patients_users"."user_id" = $1[0m  [["user_id", 4]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (86.38ms)
+Completed 200 OK in 156ms (Views: 107.6ms | ActiveRecord: 27.0ms)
+
+
+Started GET "/api/users" for ::1 at 2017-02-17 13:37:47 +0000
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+[active_model_serializers]   [1m[36mPatient Load (1.0ms)[0m  [1m[34mSELECT "patients".* FROM "patients" INNER JOIN "patients_users" ON "patients"."id" = "patients_users"."patient_id" WHERE "patients_users"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   [1m[36mPatient Load (0.7ms)[0m  [1m[34mSELECT "patients".* FROM "patients" INNER JOIN "patients_users" ON "patients"."id" = "patients_users"."patient_id" WHERE "patients_users"."user_id" = $1[0m  [["user_id", 2]]
+[active_model_serializers]   [1m[36mPatient Load (0.5ms)[0m  [1m[34mSELECT "patients".* FROM "patients" INNER JOIN "patients_users" ON "patients"."id" = "patients_users"."patient_id" WHERE "patients_users"."user_id" = $1[0m  [["user_id", 3]]
+[active_model_serializers]   [1m[36mPatient Load (1.3ms)[0m  [1m[34mSELECT "patients".* FROM "patients" INNER JOIN "patients_users" ON "patients"."id" = "patients_users"."patient_id" WHERE "patients_users"."user_id" = $1[0m  [["user_id", 4]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (26.25ms)
+Completed 200 OK in 32ms (Views: 25.8ms | ActiveRecord: 6.3ms)
+
+
+Started GET "/api/users" for ::1 at 2017-02-17 13:58:37 +0000
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (12.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+[active_model_serializers]   [1m[36mPatient Load (4.4ms)[0m  [1m[34mSELECT "patients".* FROM "patients" INNER JOIN "patients_users" ON "patients"."id" = "patients_users"."patient_id" WHERE "patients_users"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   [1m[36mPatient Load (1.0ms)[0m  [1m[34mSELECT "patients".* FROM "patients" INNER JOIN "patients_users" ON "patients"."id" = "patients_users"."patient_id" WHERE "patients_users"."user_id" = $1[0m  [["user_id", 2]]
+[active_model_serializers]   [1m[36mPatient Load (0.3ms)[0m  [1m[34mSELECT "patients".* FROM "patients" INNER JOIN "patients_users" ON "patients"."id" = "patients_users"."patient_id" WHERE "patients_users"."user_id" = $1[0m  [["user_id", 3]]
+[active_model_serializers]   [1m[36mPatient Load (0.3ms)[0m  [1m[34mSELECT "patients".* FROM "patients" INNER JOIN "patients_users" ON "patients"."id" = "patients_users"."patient_id" WHERE "patients_users"."user_id" = $1[0m  [["user_id", 4]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (43.5ms)
+Completed 200 OK in 81ms (Views: 55.7ms | ActiveRecord: 19.0ms)
+
+
+Started GET "/api/users" for ::1 at 2017-02-17 14:12:15 +0000
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+[active_model_serializers]   [1m[36mPatient Load (0.3ms)[0m  [1m[34mSELECT "patients".* FROM "patients" INNER JOIN "patients_users" ON "patients"."id" = "patients_users"."patient_id" WHERE "patients_users"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   [1m[36mPatient Load (0.3ms)[0m  [1m[34mSELECT "patients".* FROM "patients" INNER JOIN "patients_users" ON "patients"."id" = "patients_users"."patient_id" WHERE "patients_users"."user_id" = $1[0m  [["user_id", 2]]
+[active_model_serializers]   [1m[36mPatient Load (0.5ms)[0m  [1m[34mSELECT "patients".* FROM "patients" INNER JOIN "patients_users" ON "patients"."id" = "patients_users"."patient_id" WHERE "patients_users"."user_id" = $1[0m  [["user_id", 3]]
+[active_model_serializers]   [1m[36mPatient Load (0.4ms)[0m  [1m[34mSELECT "patients".* FROM "patients" INNER JOIN "patients_users" ON "patients"."id" = "patients_users"."patient_id" WHERE "patients_users"."user_id" = $1[0m  [["user_id", 4]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (35.08ms)
+Completed 200 OK in 38ms (Views: 35.8ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/api/assesments" for ::1 at 2017-02-17 14:12:20 +0000
+  
+ActionController::RoutingError (No route matches [GET] "/api/assesments"):
+  
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+rack-cors (0.4.0) lib/rack/cors.rb:80:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.6.2) lib/puma/configuration.rb:225:in `call'
+puma (3.6.2) lib/puma/server.rb:578:in `handle_request'
+puma (3.6.2) lib/puma/server.rb:415:in `process_client'
+puma (3.6.2) lib/puma/server.rb:275:in `block in run'
+puma (3.6.2) lib/puma/thread_pool.rb:116:in `block in spawn_thread'
+Started GET "/api/assesments" for ::1 at 2017-02-17 14:12:40 +0000
+  
+ActionController::RoutingError (No route matches [GET] "/api/assesments"):
+  
+actionpack (5.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.0.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.0.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.0.1) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
+rack (2.0.1) lib/rack/runtime.rb:22:in `call'
+activesupport (5.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
+rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
+rack-cors (0.4.0) lib/rack/cors.rb:80:in `call'
+railties (5.0.1) lib/rails/engine.rb:522:in `call'
+puma (3.6.2) lib/puma/configuration.rb:225:in `call'
+puma (3.6.2) lib/puma/server.rb:578:in `handle_request'
+puma (3.6.2) lib/puma/server.rb:415:in `process_client'
+puma (3.6.2) lib/puma/server.rb:275:in `block in run'
+puma (3.6.2) lib/puma/thread_pool.rb:116:in `block in spawn_thread'
+Started GET "/api/assessments" for ::1 at 2017-02-17 14:14:20 +0000
+Processing by AssessmentsController#index as HTML
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.28ms)
+Filter chain halted as :authenticate_user! rendered or redirected
+Completed 401 Unauthorized in 69ms (Views: 66.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/api/assessments" for ::1 at 2017-02-17 14:14:48 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (4.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by AssessmentsController#index as HTML
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.15ms)
+Filter chain halted as :authenticate_user! rendered or redirected
+Completed 401 Unauthorized in 5ms (Views: 4.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/api/login" for ::1 at 2017-02-17 14:16:00 +0000
+Processing by AuthController#login as HTML
+  Parameters: {"email"=>"nadia@nz.co", "password"=>"[FILTERED]", "auth"=>{"email"=>"nadia@nz.co", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (9.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "nadia@nz.co"], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mPatient Load (6.5ms)[0m  [1m[34mSELECT "patients".* FROM "patients" INNER JOIN "patients_users" ON "patients"."id" = "patients_users"."patient_id" WHERE "patients_users"."user_id" = $1[0m  [["user_id", 4]]
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (74.4ms)
+Completed 200 OK in 256ms (Views: 63.1ms | ActiveRecord: 54.6ms)
+
+
+Started GET "/api/users" for ::1 at 2017-02-17 14:16:00 +0000
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+[active_model_serializers]   [1m[36mPatient Load (0.5ms)[0m  [1m[34mSELECT "patients".* FROM "patients" INNER JOIN "patients_users" ON "patients"."id" = "patients_users"."patient_id" WHERE "patients_users"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   [1m[36mPatient Load (1.8ms)[0m  [1m[34mSELECT "patients".* FROM "patients" INNER JOIN "patients_users" ON "patients"."id" = "patients_users"."patient_id" WHERE "patients_users"."user_id" = $1[0m  [["user_id", 2]]
+[active_model_serializers]   [1m[36mPatient Load (8.8ms)[0m  [1m[34mSELECT "patients".* FROM "patients" INNER JOIN "patients_users" ON "patients"."id" = "patients_users"."patient_id" WHERE "patients_users"."user_id" = $1[0m  [["user_id", 3]]
+[active_model_serializers]   [1m[36mPatient Load (3.1ms)[0m  [1m[34mSELECT "patients".* FROM "patients" INNER JOIN "patients_users" ON "patients"."id" = "patients_users"."patient_id" WHERE "patients_users"."user_id" = $1[0m  [["user_id", 4]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (38.74ms)
+Completed 200 OK in 48ms (Views: 32.3ms | ActiveRecord: 15.4ms)
+
+
+Started GET "/api/assessments" for ::1 at 2017-02-17 14:16:32 +0000
+Processing by AssessmentsController#index as HTML
+  [1m[36mUser Load (4.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mAssessment Load (6.1ms)[0m  [1m[34mSELECT "assessments".* FROM "assessments"[0m
+[active_model_serializers]   [1m[36mPatient Load (0.3ms)[0m  [1m[34mSELECT  "patients".* FROM "patients" WHERE "patients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (28.97ms)
+Completed 200 OK in 113ms (Views: 86.5ms | ActiveRecord: 18.6ms)
+
+
+Started GET "/api/beds" for ::1 at 2017-02-17 14:16:52 +0000
+Processing by BedsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mBed Load (16.2ms)[0m  [1m[34mSELECT "beds".* FROM "beds"[0m
+[active_model_serializers]   [1m[36mPatient Load (0.4ms)[0m  [1m[34mSELECT  "patients".* FROM "patients" WHERE "patients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (7.81ms)
+Completed 200 OK in 56ms (Views: 23.7ms | ActiveRecord: 24.7ms)
+
+
+Started GET "/api/pocs" for ::1 at 2017-02-17 14:17:05 +0000
+Processing by PocsController#index as HTML
+  [1m[36mUser Load (8.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mPoc Load (9.3ms)[0m  [1m[34mSELECT "pocs".* FROM "pocs"[0m
+[active_model_serializers]   [1m[36mPatient Load (1.2ms)[0m  [1m[34mSELECT  "patients".* FROM "patients" WHERE "patients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (6.67ms)
+Completed 200 OK in 94ms (Views: 49.9ms | ActiveRecord: 33.4ms)
+
+
+Started GET "/api/patients" for ::1 at 2017-02-17 14:17:25 +0000
+Processing by PatientsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mPatient Load (0.6ms)[0m  [1m[34mSELECT "patients".* FROM "patients"[0m
+[active_model_serializers]   [1m[36mAssessment Load (10.5ms)[0m  [1m[34mSELECT "assessments".* FROM "assessments" WHERE "assessments"."patient_id" = $1[0m  [["patient_id", 1]]
+[active_model_serializers]   [1m[36mPoc Load (1.4ms)[0m  [1m[34mSELECT "pocs".* FROM "pocs" WHERE "pocs"."patient_id" = $1[0m  [["patient_id", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "patients_users" ON "users"."id" = "patients_users"."user_id" WHERE "patients_users"."patient_id" = $1[0m  [["patient_id", 1]]
+[active_model_serializers]   [1m[36mAssessment Load (2.8ms)[0m  [1m[34mSELECT "assessments".* FROM "assessments" WHERE "assessments"."patient_id" = $1[0m  [["patient_id", 2]]
+[active_model_serializers]   [1m[36mPoc Load (0.6ms)[0m  [1m[34mSELECT "pocs".* FROM "pocs" WHERE "pocs"."patient_id" = $1[0m  [["patient_id", 2]]
+[active_model_serializers]   [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "patients_users" ON "users"."id" = "patients_users"."user_id" WHERE "patients_users"."patient_id" = $1[0m  [["patient_id", 2]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (83.47ms)
+Completed 200 OK in 89ms (Views: 69.3ms | ActiveRecord: 17.7ms)
+
+
+Started GET "/api/patients" for ::1 at 2017-02-17 14:18:21 +0000
+Processing by PatientsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mPatient Load (0.6ms)[0m  [1m[34mSELECT "patients".* FROM "patients"[0m
+[active_model_serializers]   [1m[36mAssessment Load (5.6ms)[0m  [1m[34mSELECT "assessments".* FROM "assessments" WHERE "assessments"."patient_id" = $1[0m  [["patient_id", 1]]
+[active_model_serializers]   [1m[36mPoc Load (0.4ms)[0m  [1m[34mSELECT "pocs".* FROM "pocs" WHERE "pocs"."patient_id" = $1[0m  [["patient_id", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "patients_users" ON "users"."id" = "patients_users"."user_id" WHERE "patients_users"."patient_id" = $1[0m  [["patient_id", 1]]
+[active_model_serializers]   [1m[36mAssessment Load (0.4ms)[0m  [1m[34mSELECT "assessments".* FROM "assessments" WHERE "assessments"."patient_id" = $1[0m  [["patient_id", 2]]
+[active_model_serializers]   [1m[36mPoc Load (0.5ms)[0m  [1m[34mSELECT "pocs".* FROM "pocs" WHERE "pocs"."patient_id" = $1[0m  [["patient_id", 2]]
+[active_model_serializers]   [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "patients_users" ON "users"."id" = "patients_users"."user_id" WHERE "patients_users"."patient_id" = $1[0m  [["patient_id", 2]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (33.0ms)
+Completed 200 OK in 38ms (Views: 26.9ms | ActiveRecord: 9.2ms)
+
+
+Started GET "/api/assessments" for ::1 at 2017-02-17 14:18:33 +0000
+Processing by AssessmentsController#index as HTML
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mAssessment Load (0.8ms)[0m  [1m[34mSELECT "assessments".* FROM "assessments"[0m
+[active_model_serializers]   [1m[36mPatient Load (1.6ms)[0m  [1m[34mSELECT  "patients".* FROM "patients" WHERE "patients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (6.93ms)
+Completed 200 OK in 13ms (Views: 7.6ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/api/assessments" for ::1 at 2017-02-17 14:18:43 +0000
+Processing by AssessmentsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mAssessment Load (0.5ms)[0m  [1m[34mSELECT "assessments".* FROM "assessments"[0m
+[active_model_serializers]   [1m[36mPatient Load (0.4ms)[0m  [1m[34mSELECT  "patients".* FROM "patients" WHERE "patients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (3.48ms)
+Completed 200 OK in 9ms (Views: 5.3ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/api/assessments/" for 127.0.0.1 at 2017-02-17 14:18:56 +0000
+Processing by AssessmentsController#index as */*
+  Parameters: {"medically_stable"=>"yes", "rehab_in_short_term"=>"no", "discharge_destination"=>"ipswich hospital", "requires_level_of_nursing_care"=>"yes", "housing_issues"=>"no", "under_age_18"=>"no", "mental_health_problems"=>"yes", "requires_respite_care"=>"yes", "requires_long_term_placement"=>"yes", "patient_id"=>2, "assessment"=>{"medically_stable"=>"yes", "rehab_in_short_term"=>"no", "discharge_destination"=>"ipswich hospital", "requires_level_of_nursing_care"=>"yes", "housing_issues"=>"no", "under_age_18"=>"no", "mental_health_problems"=>"yes", "requires_respite_care"=>"yes", "requires_long_term_placement"=>"yes", "patient_id"=>2}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mAssessment Load (0.4ms)[0m  [1m[34mSELECT "assessments".* FROM "assessments"[0m
+[active_model_serializers]   [1m[36mPatient Load (0.4ms)[0m  [1m[34mSELECT  "patients".* FROM "patients" WHERE "patients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (3.03ms)
+Completed 200 OK in 7ms (Views: 4.1ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/api/beds" for ::1 at 2017-02-17 14:19:30 +0000
+Processing by BedsController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mBed Load (3.5ms)[0m  [1m[34mSELECT "beds".* FROM "beds"[0m
+[active_model_serializers]   [1m[36mPatient Load (7.0ms)[0m  [1m[34mSELECT  "patients".* FROM "patients" WHERE "patients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (10.61ms)
+Completed 200 OK in 19ms (Views: 6.1ms | ActiveRecord: 11.2ms)
+
+
+Started GET "/api/beds" for ::1 at 2017-02-17 14:19:32 +0000
+Processing by BedsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mBed Load (0.6ms)[0m  [1m[34mSELECT "beds".* FROM "beds"[0m
+[active_model_serializers]   [1m[36mPatient Load (0.5ms)[0m  [1m[34mSELECT  "patients".* FROM "patients" WHERE "patients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (4.8ms)
+Completed 200 OK in 10ms (Views: 6.3ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/api/assessments" for ::1 at 2017-02-17 14:19:54 +0000
+Processing by AssessmentsController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mAssessment Load (8.6ms)[0m  [1m[34mSELECT "assessments".* FROM "assessments"[0m
+[active_model_serializers]   [1m[36mPatient Load (6.3ms)[0m  [1m[34mSELECT  "patients".* FROM "patients" WHERE "patients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (10.87ms)
+Completed 200 OK in 24ms (Views: 6.7ms | ActiveRecord: 15.8ms)
+
+
+Started GET "/api/users" for ::1 at 2017-02-17 14:22:01 +0000
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+[active_model_serializers]   [1m[36mPatient Load (0.9ms)[0m  [1m[34mSELECT "patients".* FROM "patients" INNER JOIN "patients_users" ON "patients"."id" = "patients_users"."patient_id" WHERE "patients_users"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   [1m[36mPatient Load (15.9ms)[0m  [1m[34mSELECT "patients".* FROM "patients" INNER JOIN "patients_users" ON "patients"."id" = "patients_users"."patient_id" WHERE "patients_users"."user_id" = $1[0m  [["user_id", 2]]
+[active_model_serializers]   [1m[36mPatient Load (2.3ms)[0m  [1m[34mSELECT "patients".* FROM "patients" INNER JOIN "patients_users" ON "patients"."id" = "patients_users"."patient_id" WHERE "patients_users"."user_id" = $1[0m  [["user_id", 3]]
+[active_model_serializers]   [1m[36mPatient Load (2.3ms)[0m  [1m[34mSELECT "patients".* FROM "patients" INNER JOIN "patients_users" ON "patients"."id" = "patients_users"."patient_id" WHERE "patients_users"."user_id" = $1[0m  [["user_id", 4]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (47.86ms)
+Completed 200 OK in 53ms (Views: 30.3ms | ActiveRecord: 22.1ms)
+
+
+Started GET "/api/beds" for ::1 at 2017-02-17 14:22:05 +0000
+Processing by BedsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mBed Load (0.4ms)[0m  [1m[34mSELECT "beds".* FROM "beds"[0m
+[active_model_serializers]   [1m[36mPatient Load (0.4ms)[0m  [1m[34mSELECT  "patients".* FROM "patients" WHERE "patients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (2.65ms)
+Completed 200 OK in 6ms (Views: 3.7ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/api/patients" for ::1 at 2017-02-17 14:22:12 +0000
+Processing by PatientsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mPatient Load (0.4ms)[0m  [1m[34mSELECT "patients".* FROM "patients"[0m
+[active_model_serializers]   [1m[36mAssessment Load (0.6ms)[0m  [1m[34mSELECT "assessments".* FROM "assessments" WHERE "assessments"."patient_id" = $1[0m  [["patient_id", 1]]
+[active_model_serializers]   [1m[36mPoc Load (0.5ms)[0m  [1m[34mSELECT "pocs".* FROM "pocs" WHERE "pocs"."patient_id" = $1[0m  [["patient_id", 1]]
+[active_model_serializers]   [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "patients_users" ON "users"."id" = "patients_users"."user_id" WHERE "patients_users"."patient_id" = $1[0m  [["patient_id", 1]]
+[active_model_serializers]   [1m[36mAssessment Load (7.3ms)[0m  [1m[34mSELECT "assessments".* FROM "assessments" WHERE "assessments"."patient_id" = $1[0m  [["patient_id", 2]]
+[active_model_serializers]   [1m[36mPoc Load (0.8ms)[0m  [1m[34mSELECT "pocs".* FROM "pocs" WHERE "pocs"."patient_id" = $1[0m  [["patient_id", 2]]
+[active_model_serializers]   [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "patients_users" ON "users"."id" = "patients_users"."user_id" WHERE "patients_users"."patient_id" = $1[0m  [["patient_id", 2]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (41.26ms)
+Completed 200 OK in 45ms (Views: 31.0ms | ActiveRecord: 12.3ms)
+
+
+Started GET "/api/assessments" for ::1 at 2017-02-17 14:22:18 +0000
+Processing by AssessmentsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mAssessment Load (0.4ms)[0m  [1m[34mSELECT "assessments".* FROM "assessments"[0m
+[active_model_serializers]   [1m[36mPatient Load (0.4ms)[0m  [1m[34mSELECT  "patients".* FROM "patients" WHERE "patients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (4.03ms)
+Completed 200 OK in 8ms (Views: 5.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/api/assessments" for ::1 at 2017-02-17 14:22:19 +0000
+Processing by AssessmentsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mAssessment Load (0.5ms)[0m  [1m[34mSELECT "assessments".* FROM "assessments"[0m
+[active_model_serializers]   [1m[36mPatient Load (0.6ms)[0m  [1m[34mSELECT  "patients".* FROM "patients" WHERE "patients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (6.35ms)
+Completed 200 OK in 12ms (Views: 8.2ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/api/assessments" for ::1 at 2017-02-17 14:22:24 +0000
+Processing by AssessmentsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mAssessment Load (1.0ms)[0m  [1m[34mSELECT "assessments".* FROM "assessments"[0m
+[active_model_serializers]   [1m[36mPatient Load (0.3ms)[0m  [1m[34mSELECT  "patients".* FROM "patients" WHERE "patients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (4.79ms)
+Completed 200 OK in 10ms (Views: 6.8ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/api/assessments" for ::1 at 2017-02-17 14:22:25 +0000
+Processing by AssessmentsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mAssessment Load (0.6ms)[0m  [1m[34mSELECT "assessments".* FROM "assessments"[0m
+[active_model_serializers]   [1m[36mPatient Load (2.0ms)[0m  [1m[34mSELECT  "patients".* FROM "patients" WHERE "patients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (7.13ms)
+Completed 200 OK in 14ms (Views: 8.7ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/api/beds" for ::1 at 2017-02-17 14:26:59 +0000
+Processing by BedsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mBed Load (0.4ms)[0m  [1m[34mSELECT "beds".* FROM "beds"[0m
+[active_model_serializers]   [1m[36mPatient Load (0.2ms)[0m  [1m[34mSELECT  "patients".* FROM "patients" WHERE "patients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (2.79ms)
+Completed 200 OK in 7ms (Views: 3.8ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/api/beds" for ::1 at 2017-02-17 14:27:04 +0000
+Processing by BedsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mBed Load (0.5ms)[0m  [1m[34mSELECT "beds".* FROM "beds"[0m
+[active_model_serializers]   [1m[36mPatient Load (0.3ms)[0m  [1m[34mSELECT  "patients".* FROM "patients" WHERE "patients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (5.08ms)
+Completed 200 OK in 10ms (Views: 7.3ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/api/beds" for ::1 at 2017-02-17 14:28:36 +0000
+Processing by BedsController#index as HTML
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mBed Load (1.0ms)[0m  [1m[34mSELECT "beds".* FROM "beds"[0m
+[active_model_serializers]   [1m[36mPatient Load (0.6ms)[0m  [1m[34mSELECT  "patients".* FROM "patients" WHERE "patients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (5.51ms)
+Completed 200 OK in 14ms (Views: 7.3ms | ActiveRecord: 4.1ms)
+
+
+Started GET "/api/assessments" for ::1 at 2017-02-17 14:28:39 +0000
+Processing by AssessmentsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mAssessment Load (0.7ms)[0m  [1m[34mSELECT "assessments".* FROM "assessments"[0m
+[active_model_serializers]   [1m[36mPatient Load (0.4ms)[0m  [1m[34mSELECT  "patients".* FROM "patients" WHERE "patients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (5.96ms)
+Completed 200 OK in 12ms (Views: 8.0ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/api/assessments" for ::1 at 2017-02-17 14:36:48 +0000
+Processing by AssessmentsController#index as HTML
+  [1m[36mUser Load (11.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mAssessment Load (0.7ms)[0m  [1m[34mSELECT "assessments".* FROM "assessments"[0m
+[active_model_serializers]   [1m[36mPatient Load (0.5ms)[0m  [1m[34mSELECT  "patients".* FROM "patients" WHERE "patients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (28.02ms)
+Completed 200 OK in 72ms (Views: 37.9ms | ActiveRecord: 12.3ms)
+
+
+Started GET "/api/assessments" for ::1 at 2017-02-17 14:37:24 +0000
+Processing by AssessmentsController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mAssessment Load (1.2ms)[0m  [1m[34mSELECT "assessments".* FROM "assessments"[0m
+[active_model_serializers]   [1m[36mPatient Load (0.7ms)[0m  [1m[34mSELECT  "patients".* FROM "patients" WHERE "patients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (7.73ms)
+Completed 200 OK in 15ms (Views: 10.0ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/api/beds" for ::1 at 2017-02-17 14:45:27 +0000
+Processing by BedsController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mBed Load (0.7ms)[0m  [1m[34mSELECT "beds".* FROM "beds"[0m
+[active_model_serializers]   [1m[36mPatient Load (0.3ms)[0m  [1m[34mSELECT  "patients".* FROM "patients" WHERE "patients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (10.84ms)
+Completed 200 OK in 35ms (Views: 17.2ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/api/assessments" for ::1 at 2017-02-17 15:14:26 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (4.8ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by AssessmentsController#index as HTML
+  [1m[36mUser Load (7.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mAssessment Load (12.9ms)[0m  [1m[34mSELECT "assessments".* FROM "assessments"[0m
+[active_model_serializers]   [1m[36mPatient Load (3.8ms)[0m  [1m[34mSELECT  "patients".* FROM "patients" WHERE "patients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (100.61ms)
+Completed 200 OK in 335ms (Views: 151.5ms | ActiveRecord: 65.1ms)
+
+
+Started GET "/api/users" for ::1 at 2017-02-17 15:14:27 +0000
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+[active_model_serializers]   [1m[36mPatient Load (0.6ms)[0m  [1m[34mSELECT "patients".* FROM "patients" INNER JOIN "patients_users" ON "patients"."id" = "patients_users"."patient_id" WHERE "patients_users"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   [1m[36mPatient Load (0.5ms)[0m  [1m[34mSELECT "patients".* FROM "patients" INNER JOIN "patients_users" ON "patients"."id" = "patients_users"."patient_id" WHERE "patients_users"."user_id" = $1[0m  [["user_id", 2]]
+[active_model_serializers]   [1m[36mPatient Load (0.4ms)[0m  [1m[34mSELECT "patients".* FROM "patients" INNER JOIN "patients_users" ON "patients"."id" = "patients_users"."patient_id" WHERE "patients_users"."user_id" = $1[0m  [["user_id", 3]]
+[active_model_serializers]   [1m[36mPatient Load (0.4ms)[0m  [1m[34mSELECT "patients".* FROM "patients" INNER JOIN "patients_users" ON "patients"."id" = "patients_users"."patient_id" WHERE "patients_users"."user_id" = $1[0m  [["user_id", 4]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (84.92ms)
+Completed 200 OK in 94ms (Views: 87.7ms | ActiveRecord: 5.1ms)
+
+
+Started GET "/api/beds" for ::1 at 2017-02-17 15:14:37 +0000
+Processing by BedsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mBed Load (13.2ms)[0m  [1m[34mSELECT "beds".* FROM "beds"[0m
+[active_model_serializers]   [1m[36mPatient Load (0.4ms)[0m  [1m[34mSELECT  "patients".* FROM "patients" WHERE "patients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (5.15ms)
+Completed 200 OK in 66ms (Views: 39.1ms | ActiveRecord: 20.6ms)
+
+
+Started GET "/api/patients" for ::1 at 2017-02-17 15:15:33 +0000
+Processing by PatientsController#index as HTML
+  [1m[36mUser Load (6.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mPatient Load (1.0ms)[0m  [1m[34mSELECT "patients".* FROM "patients"[0m
+[active_model_serializers]   [1m[36mAssessment Load (0.4ms)[0m  [1m[34mSELECT "assessments".* FROM "assessments" WHERE "assessments"."patient_id" = $1[0m  [["patient_id", 1]]
+[active_model_serializers]   [1m[36mPoc Load (4.8ms)[0m  [1m[34mSELECT "pocs".* FROM "pocs" WHERE "pocs"."patient_id" = $1[0m  [["patient_id", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "patients_users" ON "users"."id" = "patients_users"."user_id" WHERE "patients_users"."patient_id" = $1[0m  [["patient_id", 1]]
+[active_model_serializers]   [1m[36mAssessment Load (0.3ms)[0m  [1m[34mSELECT "assessments".* FROM "assessments" WHERE "assessments"."patient_id" = $1[0m  [["patient_id", 2]]
+[active_model_serializers]   [1m[36mPoc Load (0.4ms)[0m  [1m[34mSELECT "pocs".* FROM "pocs" WHERE "pocs"."patient_id" = $1[0m  [["patient_id", 2]]
+[active_model_serializers]   [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "patients_users" ON "users"."id" = "patients_users"."user_id" WHERE "patients_users"."patient_id" = $1[0m  [["patient_id", 2]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (83.57ms)
+Completed 200 OK in 96ms (Views: 75.3ms | ActiveRecord: 18.6ms)
+
+
+Started GET "/api/patients" for ::1 at 2017-02-17 15:29:33 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (3.0ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PatientsController#index as HTML
+  [1m[36mUser Load (3.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mPatient Load (7.3ms)[0m  [1m[34mSELECT "patients".* FROM "patients"[0m
+[active_model_serializers]   [1m[36mAssessment Load (4.3ms)[0m  [1m[34mSELECT "assessments".* FROM "assessments" WHERE "assessments"."patient_id" = $1[0m  [["patient_id", 1]]
+[active_model_serializers]   [1m[36mPoc Load (4.2ms)[0m  [1m[34mSELECT "pocs".* FROM "pocs" WHERE "pocs"."patient_id" = $1[0m  [["patient_id", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "patients_users" ON "users"."id" = "patients_users"."user_id" WHERE "patients_users"."patient_id" = $1[0m  [["patient_id", 1]]
+[active_model_serializers]   [1m[36mAssessment Load (0.4ms)[0m  [1m[34mSELECT "assessments".* FROM "assessments" WHERE "assessments"."patient_id" = $1[0m  [["patient_id", 2]]
+[active_model_serializers]   [1m[36mPoc Load (0.4ms)[0m  [1m[34mSELECT "pocs".* FROM "pocs" WHERE "pocs"."patient_id" = $1[0m  [["patient_id", 2]]
+[active_model_serializers]   [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "patients_users" ON "users"."id" = "patients_users"."user_id" WHERE "patients_users"."patient_id" = $1[0m  [["patient_id", 2]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (136.77ms)
+Completed 200 OK in 260ms (Views: 149.4ms | ActiveRecord: 58.6ms)
+
+
+Started GET "/api/patients" for ::1 at 2017-02-17 15:35:38 +0000
+Processing by PatientsController#index as HTML
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mPatient Load (1.0ms)[0m  [1m[34mSELECT "patients".* FROM "patients"[0m
+[active_model_serializers]   [1m[36mAssessment Load (0.9ms)[0m  [1m[34mSELECT "assessments".* FROM "assessments" WHERE "assessments"."patient_id" = $1[0m  [["patient_id", 1]]
+[active_model_serializers]   [1m[36mPoc Load (1.0ms)[0m  [1m[34mSELECT "pocs".* FROM "pocs" WHERE "pocs"."patient_id" = $1[0m  [["patient_id", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "patients_users" ON "users"."id" = "patients_users"."user_id" WHERE "patients_users"."patient_id" = $1[0m  [["patient_id", 1]]
+[active_model_serializers]   [1m[36mAssessment Load (0.4ms)[0m  [1m[34mSELECT "assessments".* FROM "assessments" WHERE "assessments"."patient_id" = $1[0m  [["patient_id", 2]]
+[active_model_serializers]   [1m[36mPoc Load (0.4ms)[0m  [1m[34mSELECT "pocs".* FROM "pocs" WHERE "pocs"."patient_id" = $1[0m  [["patient_id", 2]]
+[active_model_serializers]   [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "patients_users" ON "users"."id" = "patients_users"."user_id" WHERE "patients_users"."patient_id" = $1[0m  [["patient_id", 2]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (51.54ms)
+Completed 200 OK in 70ms (Views: 53.2ms | ActiveRecord: 6.4ms)
+
+
+Started GET "/api/patients" for ::1 at 2017-02-17 15:35:41 +0000
+Processing by PatientsController#index as HTML
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mPatient Load (3.6ms)[0m  [1m[34mSELECT "patients".* FROM "patients"[0m
+[active_model_serializers]   [1m[36mAssessment Load (0.7ms)[0m  [1m[34mSELECT "assessments".* FROM "assessments" WHERE "assessments"."patient_id" = $1[0m  [["patient_id", 1]]
+[active_model_serializers]   [1m[36mPoc Load (0.7ms)[0m  [1m[34mSELECT "pocs".* FROM "pocs" WHERE "pocs"."patient_id" = $1[0m  [["patient_id", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "patients_users" ON "users"."id" = "patients_users"."user_id" WHERE "patients_users"."patient_id" = $1[0m  [["patient_id", 1]]
+[active_model_serializers]   [1m[36mAssessment Load (0.6ms)[0m  [1m[34mSELECT "assessments".* FROM "assessments" WHERE "assessments"."patient_id" = $1[0m  [["patient_id", 2]]
+[active_model_serializers]   [1m[36mPoc Load (0.4ms)[0m  [1m[34mSELECT "pocs".* FROM "pocs" WHERE "pocs"."patient_id" = $1[0m  [["patient_id", 2]]
+[active_model_serializers]   [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "patients_users" ON "users"."id" = "patients_users"."user_id" WHERE "patients_users"."patient_id" = $1[0m  [["patient_id", 2]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (77.61ms)
+Completed 200 OK in 89ms (Views: 77.1ms | ActiveRecord: 9.1ms)
+
+
+Started GET "/api/patients/1" for 127.0.0.1 at 2017-02-17 15:58:59 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (3.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PatientsController#show as */*
+  Parameters: {"patient_no"=>1212, "first_name"=>"patient", "last_name"=>"2", "diagnosis"=>"cancer", "id"=>"1", "patient"=>{"patient_no"=>1212, "first_name"=>"patient", "last_name"=>"2", "diagnosis"=>"cancer"}}
+  [1m[36mUser Load (6.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mPatient Load (2.8ms)[0m  [1m[34mSELECT  "patients".* FROM "patients" WHERE "patients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mAssessment Load (4.4ms)[0m  [1m[34mSELECT "assessments".* FROM "assessments" WHERE "assessments"."patient_id" = $1[0m  [["patient_id", 1]]
+[active_model_serializers]   [1m[36mPoc Load (4.3ms)[0m  [1m[34mSELECT "pocs".* FROM "pocs" WHERE "pocs"."patient_id" = $1[0m  [["patient_id", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "patients_users" ON "users"."id" = "patients_users"."user_id" WHERE "patients_users"."patient_id" = $1[0m  [["patient_id", 1]]
+[active_model_serializers] Rendered PatientSerializer with ActiveModelSerializers::Adapter::Attributes (114.01ms)
+Completed 200 OK in 208ms (Views: 125.6ms | ActiveRecord: 52.6ms)
+
+
+Started GET "/api/patients" for ::1 at 2017-02-17 16:04:36 +0000
+Processing by PatientsController#index as HTML
+  [1m[36mUser Load (3.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mPatient Load (2.9ms)[0m  [1m[34mSELECT "patients".* FROM "patients"[0m
+[active_model_serializers]   [1m[36mAssessment Load (5.3ms)[0m  [1m[34mSELECT "assessments".* FROM "assessments" WHERE "assessments"."patient_id" = $1[0m  [["patient_id", 1]]
+[active_model_serializers]   [1m[36mPoc Load (4.5ms)[0m  [1m[34mSELECT "pocs".* FROM "pocs" WHERE "pocs"."patient_id" = $1[0m  [["patient_id", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "patients_users" ON "users"."id" = "patients_users"."user_id" WHERE "patients_users"."patient_id" = $1[0m  [["patient_id", 1]]
+[active_model_serializers]   [1m[36mAssessment Load (0.4ms)[0m  [1m[34mSELECT "assessments".* FROM "assessments" WHERE "assessments"."patient_id" = $1[0m  [["patient_id", 2]]
+[active_model_serializers]   [1m[36mPoc Load (0.4ms)[0m  [1m[34mSELECT "pocs".* FROM "pocs" WHERE "pocs"."patient_id" = $1[0m  [["patient_id", 2]]
+[active_model_serializers]   [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "patients_users" ON "users"."id" = "patients_users"."user_id" WHERE "patients_users"."patient_id" = $1[0m  [["patient_id", 2]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (122.3ms)
+Completed 200 OK in 143ms (Views: 87.6ms | ActiveRecord: 48.6ms)
+
+
+Started GET "/api/users" for ::1 at 2017-02-17 16:04:37 +0000
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+[active_model_serializers]   [1m[36mPatient Load (0.8ms)[0m  [1m[34mSELECT "patients".* FROM "patients" INNER JOIN "patients_users" ON "patients"."id" = "patients_users"."patient_id" WHERE "patients_users"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   [1m[36mPatient Load (0.4ms)[0m  [1m[34mSELECT "patients".* FROM "patients" INNER JOIN "patients_users" ON "patients"."id" = "patients_users"."patient_id" WHERE "patients_users"."user_id" = $1[0m  [["user_id", 2]]
+[active_model_serializers]   [1m[36mPatient Load (0.6ms)[0m  [1m[34mSELECT "patients".* FROM "patients" INNER JOIN "patients_users" ON "patients"."id" = "patients_users"."patient_id" WHERE "patients_users"."user_id" = $1[0m  [["user_id", 3]]
+[active_model_serializers]   [1m[36mPatient Load (0.4ms)[0m  [1m[34mSELECT "patients".* FROM "patients" INNER JOIN "patients_users" ON "patients"."id" = "patients_users"."patient_id" WHERE "patients_users"."user_id" = $1[0m  [["user_id", 4]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (49.13ms)
+Completed 200 OK in 59ms (Views: 51.6ms | ActiveRecord: 6.9ms)
+
+
+Started GET "/api/users" for ::1 at 2017-02-18 10:29:34 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (6.8ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (7.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+[active_model_serializers]   [1m[36mPatient Load (5.9ms)[0m  [1m[34mSELECT "patients".* FROM "patients" INNER JOIN "patients_users" ON "patients"."id" = "patients_users"."patient_id" WHERE "patients_users"."user_id" = $1[0m  [["user_id", 1]]
+[active_model_serializers]   [1m[36mPatient Load (0.5ms)[0m  [1m[34mSELECT "patients".* FROM "patients" INNER JOIN "patients_users" ON "patients"."id" = "patients_users"."patient_id" WHERE "patients_users"."user_id" = $1[0m  [["user_id", 2]]
+[active_model_serializers]   [1m[36mPatient Load (0.4ms)[0m  [1m[34mSELECT "patients".* FROM "patients" INNER JOIN "patients_users" ON "patients"."id" = "patients_users"."patient_id" WHERE "patients_users"."user_id" = $1[0m  [["user_id", 3]]
+[active_model_serializers]   [1m[36mPatient Load (0.4ms)[0m  [1m[34mSELECT "patients".* FROM "patients" INNER JOIN "patients_users" ON "patients"."id" = "patients_users"."patient_id" WHERE "patients_users"."user_id" = $1[0m  [["user_id", 4]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (85.89ms)
+Completed 200 OK in 181ms (Views: 121.1ms | ActiveRecord: 38.7ms)
+
+
+Started GET "/api/assessments" for ::1 at 2017-02-18 10:29:46 +0000
+Processing by AssessmentsController#index as HTML
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mAssessment Load (6.0ms)[0m  [1m[34mSELECT "assessments".* FROM "assessments"[0m
+[active_model_serializers]   [1m[36mPatient Load (0.6ms)[0m  [1m[34mSELECT  "patients".* FROM "patients" WHERE "patients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (28.51ms)
+Completed 200 OK in 79ms (Views: 51.7ms | ActiveRecord: 19.8ms)
+
+
+Started GET "/api/beds" for ::1 at 2017-02-18 10:29:53 +0000
+Processing by BedsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mBed Load (16.9ms)[0m  [1m[34mSELECT "beds".* FROM "beds"[0m
+[active_model_serializers]   [1m[36mPatient Load (0.3ms)[0m  [1m[34mSELECT  "patients".* FROM "patients" WHERE "patients"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (4.75ms)
+Completed 200 OK in 52ms (Views: 21.4ms | ActiveRecord: 22.6ms)
+
+
+Started GET "/api/patients" for ::1 at 2017-02-18 10:30:00 +0000
+Processing by PatientsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mPatient Load (0.4ms)[0m  [1m[34mSELECT "patients".* FROM "patients"[0m
+[active_model_serializers]   [1m[36mAssessment Load (2.6ms)[0m  [1m[34mSELECT "assessments".* FROM "assessments" WHERE "assessments"."patient_id" = $1[0m  [["patient_id", 1]]
+[active_model_serializers]   [1m[36mPoc Load (4.2ms)[0m  [1m[34mSELECT "pocs".* FROM "pocs" WHERE "pocs"."patient_id" = $1[0m  [["patient_id", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "patients_users" ON "users"."id" = "patients_users"."user_id" WHERE "patients_users"."patient_id" = $1[0m  [["patient_id", 1]]
+[active_model_serializers]   [1m[36mAssessment Load (0.4ms)[0m  [1m[34mSELECT "assessments".* FROM "assessments" WHERE "assessments"."patient_id" = $1[0m  [["patient_id", 2]]
+[active_model_serializers]   [1m[36mPoc Load (0.4ms)[0m  [1m[34mSELECT "pocs".* FROM "pocs" WHERE "pocs"."patient_id" = $1[0m  [["patient_id", 2]]
+[active_model_serializers]   [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "patients_users" ON "users"."id" = "patients_users"."user_id" WHERE "patients_users"."patient_id" = $1[0m  [["patient_id", 2]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (82.74ms)
+Completed 200 OK in 89ms (Views: 70.4ms | ActiveRecord: 15.6ms)
+
+
+Started GET "/api/patients/1" for ::1 at 2017-02-18 10:30:01 +0000
+Processing by PatientsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mPatient Load (0.3ms)[0m  [1m[34mSELECT  "patients".* FROM "patients" WHERE "patients"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[active_model_serializers]   [1m[36mAssessment Load (0.7ms)[0m  [1m[34mSELECT "assessments".* FROM "assessments" WHERE "assessments"."patient_id" = $1[0m  [["patient_id", 1]]
+[active_model_serializers]   [1m[36mPoc Load (4.9ms)[0m  [1m[34mSELECT "pocs".* FROM "pocs" WHERE "pocs"."patient_id" = $1[0m  [["patient_id", 1]]
+[active_model_serializers]   [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "patients_users" ON "users"."id" = "patients_users"."user_id" WHERE "patients_users"."patient_id" = $1[0m  [["patient_id", 1]]
+[active_model_serializers] Rendered PatientSerializer with ActiveModelSerializers::Adapter::Attributes (21.47ms)
+Completed 200 OK in 27ms (Views: 15.4ms | ActiveRecord: 8.2ms)
+
+
+Started GET "/api/patients" for ::1 at 2017-02-18 10:30:19 +0000
+Processing by PatientsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mPatient Load (1.3ms)[0m  [1m[34mSELECT "patients".* FROM "patients"[0m
+[active_model_serializers]   [1m[36mAssessment Load (0.5ms)[0m  [1m[34mSELECT "assessments".* FROM "assessments" WHERE "assessments"."patient_id" = $1[0m  [["patient_id", 1]]
+[active_model_serializers]   [1m[36mPoc Load (0.7ms)[0m  [1m[34mSELECT "pocs".* FROM "pocs" WHERE "pocs"."patient_id" = $1[0m  [["patient_id", 1]]
+[active_model_serializers]   [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "patients_users" ON "users"."id" = "patients_users"."user_id" WHERE "patients_users"."patient_id" = $1[0m  [["patient_id", 1]]
+[active_model_serializers]   [1m[36mAssessment Load (0.4ms)[0m  [1m[34mSELECT "assessments".* FROM "assessments" WHERE "assessments"."patient_id" = $1[0m  [["patient_id", 2]]
+[active_model_serializers]   [1m[36mPoc Load (0.4ms)[0m  [1m[34mSELECT "pocs".* FROM "pocs" WHERE "pocs"."patient_id" = $1[0m  [["patient_id", 2]]
+[active_model_serializers]   [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" INNER JOIN "patients_users" ON "users"."id" = "patients_users"."user_id" WHERE "patients_users"."patient_id" = $1[0m  [["patient_id", 2]]
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (23.7ms)
+Completed 200 OK in 29ms (Views: 22.5ms | ActiveRecord: 5.2ms)
+
+
