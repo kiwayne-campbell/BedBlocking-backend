@@ -16,6 +16,7 @@ class PatientsController < ApplicationController
   # POST /patients
   def create
     @patient = Patient.new(patient_params)
+    @patient.user = current_user
 
     if @patient.save
       render json: @patient, status: :created, location: @patient
@@ -26,10 +27,12 @@ class PatientsController < ApplicationController
 
   # PATCH/PUT /patients/1
   def update
-    if @patient.update(patient_params)
-      render json: @patient
-    else
-      render json: @patient.errors, status: :unprocessable_entity
+    if @patient.user == current_user
+      if @patient.update(patient_params)
+        render json: @patient
+      else
+        render json: @patient.errors, status: :unprocessable_entity
+      end
     end
   end
 

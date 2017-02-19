@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170215165301) do
+ActiveRecord::Schema.define(version: 20170219180737) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -67,8 +67,6 @@ ActiveRecord::Schema.define(version: 20170215165301) do
     t.string   "nursing_home"
     t.string   "other"
     t.string   "notes"
-    t.date     "doa"
-    t.date     "dod"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
     t.integer  "patient_id"
