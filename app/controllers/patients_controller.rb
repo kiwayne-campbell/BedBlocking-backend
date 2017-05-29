@@ -3,7 +3,11 @@ class PatientsController < ApplicationController
 
   # GET /patients
   def index
-    @patients = Patient.all
+    if params[:q]
+      @patients = Patient.where("first_name ILIKE :q OR diagnosis ILIKE :q", q: "%#{params[:q]}%")
+    else
+      @patients = Patient.all
+    end
 
     render json: @patients
   end
@@ -16,7 +20,6 @@ class PatientsController < ApplicationController
   # POST /patients
   def create
     @patient = Patient.new(patient_params)
-    @patient.user = current_user
 
     if @patient.save
       render json: @patient, status: :created, location: @patient
@@ -27,12 +30,10 @@ class PatientsController < ApplicationController
 
   # PATCH/PUT /patients/1
   def update
-    if @patient.user == current_user
-      if @patient.update(patient_params)
-        render json: @patient
-      else
-        render json: @patient.errors, status: :unprocessable_entity
-      end
+    if @patient.update(patient_params)
+      render json: @patient
+    else
+      render json: @patient.errors, status: :unprocessable_entity
     end
   end
 

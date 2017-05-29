@@ -34,9 +34,14 @@ User.create!([{
 
 Patient.create!([{
   patient_no: 323324,
-  first_name: "patient",
-  last_name: "0",
+  first_name: "kelly",
+  last_name: "honda",
   diagnosis: "cancer"
+},{
+  patient_no: 323324,
+  first_name: "daniel",
+  last_name: "crekster",
+  diagnosis: "kidney stones"
 }])
 
 Assessment.create!([{
