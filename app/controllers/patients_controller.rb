@@ -4,7 +4,7 @@ class PatientsController < ApplicationController
   # GET /patients
   def index
     if params[:q]
-      @patients = Patient.where("first_name ILIKE :q OR diagnosis ILIKE :q", q: "%#{params[:q]}%")
+      @patients = Patient.where("first_name ILIKE :q OR last_name ILIKE :q OR diagnosis ILIKE :q OR patient_no::text ILIKE :q", q: "%#{params[:q]}%")
     else
       @patients = Patient.all
     end
