@@ -14,7 +14,7 @@ class PatientsController < ApplicationController
 
   # GET /patients/1
   def show
-    render json: @patient
+    render json: @patient, include: ['users']
   end
 
   # POST /patients
@@ -22,10 +22,23 @@ class PatientsController < ApplicationController
     @patient = Patient.new(patient_params)
 
     if @patient.save
+      @patient.users << current_user
       render json: @patient, status: :created, location: @patient
     else
       render json: @patient.errors, status: :unprocessable_entity
     end
+  end
+
+    # POST /patients/:id/addPatient
+  def add_patient
+    @patient.users << current_user
+    render json: @patient
+  end
+
+  # POST /patients/:id/removePatient
+  def remove_patient
+    @patient.users.delete(current_user)
+    render json: @patient
   end
 
   # PATCH/PUT /patients/1
@@ -50,6 +63,6 @@ class PatientsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def patient_params
-      params.require(:patient).permit(:patient_no, :first_name, :last_name, :diagnosis)
+      params.require(:patient).permit(:patient_no, :first_name, :last_name, :diagnosis, user_ids:[])
     end
 end
