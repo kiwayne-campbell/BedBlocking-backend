@@ -29,7 +29,7 @@ class PatientsController < ApplicationController
     end
   end
 
-    # POST /patients/:id/addPatient
+    # POST /patients/:id/add_patient
   def add_patient
     @patient.users << current_user
     render json: @patient
