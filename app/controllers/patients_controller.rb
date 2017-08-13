@@ -36,10 +36,10 @@ class PatientsController < ApplicationController
   end
 
   # POST /patients/:id/removePatient
-  def remove_patient
-    @patient.users.delete(current_user)
-    render json: @patient
-  end
+  # def remove_patient
+  #   @patient.users.delete(current_user)
+  #   render json: @patient
+  # end
 
   # PATCH/PUT /patients/1
   def update

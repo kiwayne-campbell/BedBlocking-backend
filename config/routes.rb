@@ -6,6 +6,8 @@ Rails.application.routes.draw do
     resources :pocs
     resources :patients
     resources :users, except: [:create]
+    post 'patients/:id', to: 'patients#add_patient'
+    post 'users/:id', to: 'users#remove_patient'
     post 'register', to: 'auth#register'
     post 'login', to: 'auth#login'
    end

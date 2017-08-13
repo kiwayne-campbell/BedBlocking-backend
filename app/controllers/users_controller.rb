@@ -39,6 +39,12 @@ class UsersController < ApplicationController
     @user.destroy
   end
 
+  # POST /users/:id/removePatient
+  def remove_patient
+    @Users.patients.delete(current_user)
+    render json: @patient
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
